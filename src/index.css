@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Drifting Cloud Animations behind the Airplane in the Hero */
+@keyframes driftLeft {
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(-110%);
+  }
+}
+
+.cloud-slow {
+  animation: driftLeft 45s linear infinite;
+}
+
+.cloud-fast {
+  animation: driftLeft 25s linear infinite;
+}
+
+.cloud-medium {
+  animation: driftLeft 35s linear infinite;
+}
+
+/* baaki sara CSS yahin rahega... */
