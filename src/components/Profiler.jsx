@@ -1,4 +1,11 @@
 import React, { useState, useRef, useCallback } from 'react';
+import { 
+  FaCircleNodes, 
+  FaSpinner, 
+  FaRotate,
+  FaWhatsapp
+} from 'react-icons/fa6';
+import { FaRegCircle } from 'react-icons/fa';
 
 export const Profiler = () => {
     // State for managing UI updates
@@ -198,7 +205,7 @@ export const Profiler = () => {
                         
                         <div className="text-center mb-10 relative z-10">
                             <span className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-[#0284c7] dark:text-skyBrand block mb-3">
-                                <i className="fa-solid fa-circle-nodes mr-1.5"></i> Visa Case Profiler
+                                <FaCircleNodes className="inline mr-1.5" /> Visa Case Profiler
                             </span>
                             <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 dark:text-white mb-4">
                                 PORTAL CASE STRENGTH MEASURE
@@ -285,7 +292,7 @@ export const Profiler = () => {
                                         >
                                             {isLoading ? (
                                                 <>
-                                                    <i className="fa-solid fa-spinner fa-spin mr-2"></i>
+                                                    <FaSpinner className="inline mr-2 animate-spin" />
                                                     PROCESSING...
                                                 </>
                                             ) : (
@@ -298,7 +305,7 @@ export const Profiler = () => {
                                             className="px-4 py-3.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-extrabold rounded-xl text-[10px] uppercase tracking-widest transition"
                                             aria-label="Reset form"
                                         >
-                                            <i className="fa-solid fa-rotate"></i>
+                                            <FaRotate />
                                         </button>
                                     </div>
                                 </form>
@@ -351,7 +358,7 @@ export const Profiler = () => {
                                 <div
                                     ref={resultCardRef}
                                     id="gaugeResultCard"
-                                    className={`hidden text-center mt-4 animate-fadeIn ${showResult ? 'block' : 'hidden'}`}
+                                    className={`text-center mt-4 animate-fadeIn ${showResult ? 'block' : 'hidden'}`}
                                 >
                                     <p
                                         ref={analysisMsgRef}
@@ -367,7 +374,7 @@ export const Profiler = () => {
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-3 py-1.5 rounded-lg text-[8px] uppercase tracking-widest transition shadow-lg shadow-emerald-500/10 hover:scale-105 transform duration-200"
                                     >
-                                        <i className="fa-brands fa-whatsapp text-[10px]"></i>
+                                        <FaWhatsapp className="text-[10px]" />
                                         Boost Score Free
                                     </a>
                                 </div>

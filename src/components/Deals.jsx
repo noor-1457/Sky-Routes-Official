@@ -135,6 +135,7 @@ export const Deals = () => {
                                     </p>
                                     
                                     <div className="space-y-3 border-t border-slate-200/60 dark:border-slate-800 pt-4">
+                                    <p className='text-[#0284c7] text-[13px] '>Starting from</p>
                                         <div className="flex items-center justify-between text-xs">
                                             <span className="text-slateText dark:text-slate-300">One-way Economy Class</span>
                                             <strong className="text-emerald-600 dark:text-emerald-400 font-black">
@@ -149,7 +150,7 @@ export const Deals = () => {
                                         </div>
                                     </div>
                                     
-                                    <div className="mt-3 flex items-center justify-between text-[10px]">
+                                    {/* <div className="mt-3 flex items-center justify-between text-[10px]">
                                         <button 
                                             onClick={() => checkLiveFare(deal.origin, deal.dest, deal.id)}
                                             disabled={loading[deal.id]}
@@ -161,21 +162,21 @@ export const Deals = () => {
                                         <span id={`live-${deal.id}`} className="text-slate-400 font-semibold">
                                             {liveFares[deal.id]}
                                         </span>
-                                    </div>
+                                    </div> */}
                                 </div>
-                                <button 
+                                {/* <button 
                                     onClick={() => bookDeal(deal.destination, deal.economyPrice)}
                                     className="flex-1 bg-[#0284c7] dark:bg-skyBrand hover:bg-sky-700 dark:hover:bg-sky-400 text-white dark:text-slate-950 font-extrabold py-3.5 px-4 rounded-xl text-[10px] uppercase tracking-widest transition duration-300 shadow-lg shadow-blue-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     Inquire Flight Rates
-                                </button>
+                                </button> */}
                             </div>
                         ))}
                     </div>
 
                     {/* Mandatory pricing warning notice below flights */}
-                    <p className="text-center text-[10px] text-slate-400 dark:text-slate-500 italic mt-8 leading-relaxed max-w-2xl mx-auto font-medium">
-                        * Please note: Flight ticket rates fluctuate frequently as per GDS demand matrices and seasonal requirements. These rates are approximate roundabout estimates, not exact static prices.
+                    <p className="text-center text-[15px] text-slate-400 dark:text-slate-500 italic mt-8 leading-relaxed max-w-2xl mx-auto font-large">
+                        * Starting fares. Final price depends on travel date, availability, and airline.
                     </p>
                 </div>
             </section>

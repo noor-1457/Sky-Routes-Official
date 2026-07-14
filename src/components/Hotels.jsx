@@ -60,12 +60,6 @@ export const Hotels = () => {
         }));
     };
 
-    // Inquire hotel handler
-    const inquireHotel = (hotelName) => {
-        const message = `Hi Sky Routes, I'm interested in booking: ${hotelName}. Please share details.`;
-        const whatsappUrl = `https://wa.me/923111101470?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-    };
 
     // Render stars based on rating with dark/light theme compatibility
     const renderStars = (rating) => {
@@ -163,29 +157,27 @@ export const Hotels = () => {
                                     </div>
                                 </div>
                                 <div className="p-6 pt-0 mt-4">
-                                    <div className="flex items-center justify-between text-xs border-t border-slate-50 dark:border-slate-800/80 pt-4 mb-4">
+                                    <div className="text-xs border-t border-slate-50 dark:border-slate-800/80 pt-4 mb-4">
+                                        <p className='text-[#0284c7] text-[13px] '>Starting from</p>
+                                        <div className='flex items-center justify-between text-xs"'>
+
                                         <span className="text-slate-500 dark:text-slate-400 font-bold">
                                             Nightly Room Rate
                                         </span>
                                         <span className="text-emerald-600 dark:text-emerald-400 font-black text-sm">
                                             {hotel.price}
                                         </span>
+                                        </div>
                                     </div>
-                                    <button 
-                                        onClick={() => inquireHotel(hotel.name)}
-                                        className="w-full bg-[#0284c7] dark:bg-skyBrand hover:bg-sky-700 dark:hover:bg-sky-400 text-white dark:text-slate-950 font-extrabold py-3.5 px-4 rounded-xl text-[10px] uppercase tracking-widest transition duration-300 shadow-lg shadow-blue-500/10 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-[0.98]"
-                                    >
-                                        Book Room Now
-                                    </button>
+                                   
                                 </div>
                             </div>
                         ))}
                     </div>
 
                     {/* Mandatory pricing warning notice below hotels */}
-                    <p className="text-center text-[10px] text-slate-400 dark:text-slate-500 italic mt-8 leading-relaxed max-w-2xl mx-auto font-medium">
-                        * Please note: Hotel reservation rates fluctuate frequently depending on room availability, occupancy levels, and exchange rates. These rates are approximate roundabout estimates.
-                    </p>
+                    <p className="text-center text-[15px] text-slate-400 dark:text-slate-500 italic mt-8 leading-relaxed max-w-2xl mx-auto font-large">
+* Starting fares. Final price depends on date and availability.</p>
                 </div>
             </section>
         </>
