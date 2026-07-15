@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
 export const Hotels = () => {
@@ -12,42 +12,42 @@ export const Hotels = () => {
     // Hotel data
     const hotels = [
         {
-            id: 'sahara',
-            name: 'Sahara Beach Resort & Spa',
-            location: 'Sharjah (5-Star)',
-            image: 'https://i.ytimg.com/vi/NRWZLo-DVq8/sddefault.jpg',
+            id: 'voco',
+            name: 'Voco Jeddah',
+            location: 'Jeddah (5-Star)',
+            image: 'https://digital.ihg.com/is/image/ihg/voco-jeddah-10970283612-1x1',
             description: 'Beachfront 5-star resort with private shoreline access, palm-lined pool deck, and elegant marble lobby.',
             rating: 5,
-            price: 'PKR 13,000/-',
+            price: 'PKR 30,000/-',
             images: [
-                'https://i.ytimg.com/vi/NRWZLo-DVq8/sddefault.jpg',
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9v13FQDMFqf7Y_-EtGq-s1tH4dWEVoQbc4N5vNEjOiA&s=10'
+                'https://digital.ihg.com/is/image/ihg/voco-jeddah-10970283612-1x1',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1lDGQUa58IjucYbY1PEJr_am-PvOyJDF3lO1ckFYIfA&s=10'
             ]
         },
         {
-            id: 'parkroyal',
-            name: 'PARKROYAL COLLECTION KL',
-            location: 'Kuala Lumpur (5-Star)',
-            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTjO18uOYyq-WEF7hmXe4khPikolzlnXnbBmOj61WMJmkO7jMWYCwYwzQ&s=10',
+            id: 'sharjah',
+            name: 'Pullman Sharjah',
+            location: 'Dubai(5-Star)',
+            image: 'https://www.ahstatic.com/photos/2022_ho_00_p_1024x768.jpg',
             description: 'Iconic vertical-garden tower in the heart of KL, with skyline-view rooms and lush eco-friendly design.',
             rating: 5,
-            price: 'PKR 37,000/-',
+            price: 'PKR 15,000/-',
             images: [
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTjO18uOYyq-WEF7hmXe4khPikolzlnXnbBmOj61WMJmkO7jMWYCwYwzQ&s=10',
-                'https://i.ytimg.com/vi/NRWZLo-DVq8/sddefault.jpg'
+                'https://www.ahstatic.com/photos/2022_ho_00_p_1024x768.jpg',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IWg-oWM1c-XOc1WwgwTQvVdjM_H5Sbe5ixNxbK4jKw&s=10'
             ]
         },
         {
-            id: 'andalus',
-            name: 'Andalus Habitat Hotel',
-            location: 'Jeddah (4.5-Star)',
-            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9v13FQDMFqf7Y_-EtGq-s1tH4dWEVoQbc4N5vNEjOiA&s=10',
+            id: 'london',
+            name: 'Hilton London Metro pole',
+            location: 'UK London(4.5-Star)',
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY-S06qrX_I0LegA1aapqxAeQmdKoX17FTF_iJmcFYTQ&s=10',
             description: 'Relaxed courtyard hotel with lit pool terrace and greenery - a calm base for Jeddah stays.',
             rating: 4.5,
-            price: 'PKR 22,000/-',
+            price: 'PKR 68,500/-',
             images: [
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9v13FQDMFqf7Y_-EtGq-s1tH4dWEVoQbc4N5vNEjOiA&s=10',
-                'https://i.ytimg.com/vi/NRWZLo-DVq8/sddefault.jpg'
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY-S06qrX_I0LegA1aapqxAeQmdKoX17FTF_iJmcFYTQ&s=10',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuo_PGKXASClYcNy_DB6lIz_UkTCEft1ia4hspotQ4nA&s=10'
             ]
         }
     ];

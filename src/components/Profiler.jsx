@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { 
   FaCircleNodes, 
   FaSpinner, 
@@ -317,17 +317,17 @@ export const Profiler = () => {
                                     <svg className="absolute inset-0 w-full h-full transform -rotate-90">
                                         <circle
                                             className="fill-none stroke-slate-200 dark:stroke-slate-700 stroke-[5]"
-                                            cx="72"
-                                            cy="72"
-                                            r="54"
+                                            cx="89"
+                                            cy="90"
+                                            r="75"
                                         />
                                         <circle
                                             ref={gaugeCircleRef}
                                             id="gaugeProgressCircle"
                                             className="fill-none stroke-[#0284c7] dark:stroke-skyBrand stroke-[5] stroke-linecap-round transition-all duration-1000 ease-out"
-                                            cx="72"
-                                            cy="72"
-                                            r="54"
+                                            cx="89"
+                                            cy="90"
+                                            r="75"
                                             strokeDasharray="339.2"
                                             strokeDashoffset="339.2"
                                         />

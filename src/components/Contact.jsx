@@ -5,7 +5,6 @@ import {
   FaPhoneVolume, 
   FaPaperPlane,
   FaCircleCheck,
-  FaSpinner
 } from 'react-icons/fa6';
 
 export const Contact = () => {

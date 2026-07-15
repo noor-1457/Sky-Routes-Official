@@ -4,9 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png"
 
 export const Navbar = () => {
-  const [dark, setDark] = useState(
-    document.documentElement.classList.contains("dark")
-  );
+  const [dark, setDark] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -26,11 +24,11 @@ export const Navbar = () => {
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About Us" },
-    // { path: "/visa-profiler", label: "Visa Profiler" },
-    // { path: "/flight-deals", label: "Flight Deals" },
-    // { path: "/hotels", label: "Hotels" },
     { path: "/airlinesPage", label: "Airlines" },
     { path: "/umrah-packages", label: "Umrah Packages" },
+    { path: "/hajj", label: "Hajj 2027" },
+    // { path: "/terms", label: "Terms & Conditions" },
+
   ];
 
   const isActive = (path) => {

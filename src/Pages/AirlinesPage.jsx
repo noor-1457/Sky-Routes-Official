@@ -365,9 +365,9 @@ export const AirlinesPage = () => {
                       >
                         <div className="flex items-start space-x-4">
                           {/* Airline Icon */}
-                          <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#0284c7]/10 to-[#0284c7]/5 dark:from-skyBrand/20 dark:to-skyBrand/10 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
+                          {/* <div className="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-[#0284c7]/10 to-[#0284c7]/5 dark:from-skyBrand/20 dark:to-skyBrand/10 rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300">
                             {airline.icon}
-                          </div>
+                          </div> */}
                           
                           <div className="flex-1 min-w-0">
                             <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
