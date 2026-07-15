@@ -11,6 +11,7 @@ import {
   FaSignInAlt
 } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
+import logo from "../assets/logo.png"
 
 export const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,7 +32,7 @@ export const Footer = () => {
             <div>
               <div className="flex items-center mb-4">
                 <img 
-                  src="" 
+                  src={logo} 
                   alt="Sky Routes" 
                   className="h-16 w-auto object-contain"
                 />
@@ -55,7 +56,8 @@ export const Footer = () => {
                   <FaFacebookF />
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.instagram.com/skyroutesmarketing?igsh=dXZqNm8xbWJseXM%3D"
+                  target='blank' 
                   className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-[#E1306C] flex items-center justify-center hover:scale-110 transition"
                 >
                   <FaInstagram />
@@ -72,11 +74,11 @@ export const Footer = () => {
             <div>
               <h4 className="text-[11px] font-extrabold uppercase tracking-widest text-deepBase dark:text-white mb-4">Quick Links</h4>
               <ul className="space-y-2 text-[11px] text-slateText dark:text-slate-400 font-semibold">
-                <li><a href="#home" className="hover:text-[#0284c7] transition">Home</a></li>
-                <li><a href="#about" className="hover:text-[#0284c7] transition">About Us</a></li>
-                <li><a href="#deals" className="hover:text-[#0284c7] transition">Flight Deals</a></li>
-                <li><a href="#hotels" className="hover:text-[#0284c7] transition">Hotels</a></li>
-                <li><a href="#faq" className="hover:text-[#0284c7] transition">FAQs</a></li>
+                <li><a href="/home" className="hover:text-[#0284c7] transition">Home</a></li>
+                <li><a href="/about" className="hover:text-[#0284c7] transition">About Us</a></li>
+                <li><a href="/airlinesPage" className="hover:text-[#0284c7] transition">Airlines</a></li>
+                <li><a href="/umrah-packages" className="hover:text-[#0284c7] transition">Umrah Packages</a></li>
+                {/* <li><a href="#faq" className="hover:text-[#0284c7] transition">FAQs</a></li> */}
               </ul>
             </div>
 
@@ -115,12 +117,12 @@ export const Footer = () => {
 
           <div className="border-t border-slate-100 dark:border-slate-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] font-bold text-slate-400 dark:text-slate-500">
             <p>&copy; 2026 Sky Routes Agency, Lahore. All rights reserved.</p>
-            <button 
+            {/* <button 
               onClick={openAdminModal} 
               className="hover:text-orangeBrand transition"
             >
               <FaLock className="inline mr-1" /> Staff Portal
-            </button>
+            </button> */}
           </div>
         </div>
       </footer>

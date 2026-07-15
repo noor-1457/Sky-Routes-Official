@@ -1,38 +1,36 @@
 import "./App.css";
-import { Navbar } from "./components/Navbar.jsx";
-import { Hero } from "./components/Hero.jsx";
-import { About } from "./components/About.jsx";
-import { Profiler } from "./components/Profiler.jsx";
-import { Deals } from "./components/Deals.jsx";
-import { Hotels } from "./components/Hotels.jsx"
-import { Airlines } from "./components/Airlines.jsx";
-import { Reviews } from "./components/Reviews.jsx";
-import { FAQAccordian } from "./components/FAQAccordian.jsx";
+import PublicLayout from "./layout/publicLayout.jsx";
+// import { About } from "./components/About.jsx";
 import { Contact } from "./components/Contact.jsx";
-import { Footer } from "./components/Footer.jsx";
-import { UmrahPackages } from "./components/UmrahPackages.jsx";
-import { WhatsAppButton } from "./components/WhatsappButton.jsx";
-// import { FlightSearch } from "./components/flightSearch.jsx";
-function App() {
+import { Home } from "./Pages/Home.jsx";
+// import { FAQ } from "./Pages/FAQ.jsx";
+import { AirlinesPage } from "./Pages/AirlinesPage.jsx";
+// import { FlightDeals } from "./Pages/FlightDeals.jsx";
+// import { Hotels } from "./Pages/Hotels.jsx";
+// import { Airlines } from "./Pages/Airlines.jsx";
+import { UmrahPackagesPage } from "./Pages/UmrahPackages.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AboutPage } from "./Pages/AboutPage.jsx";
 
+function App() {
   return (
     <>
-      <div>
-      <Navbar/>
-      <Hero />
-      <UmrahPackages />
-       {/* <FlightSearch /> */}
-      <About/>
-      <Profiler />
-      <Deals />
-      <Hotels />
-      <Airlines />
-      <Reviews />
-      <FAQAccordian/>
-      <Contact/>
-      <WhatsAppButton/>
-      <Footer/>
-    </div>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<PublicLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            {/* <Route path="/faq" element={<FAQ />} /> */}
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/airlinesPage" element={<AirlinesPage />} />
+            {/* <Route path="/flight-deals" element={<FlightDeals />} /> */}
+            {/* <Route path="/hotels" element={<Hotels />} /> */}
+            {/* <Route path="/airlines" element={<Airlines />} /> */}
+            <Route path="/umrah-packages" element={<UmrahPackagesPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

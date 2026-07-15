@@ -177,8 +177,8 @@ export const UmrahPackages = () => {
       airline: 'PIA',
       duration: '28 Days',
       isExclusive: true,
-      travelDate: '15th Aug 2026',
-      returnDate: '11th Sep 2026',
+      // travelDate: '15th Aug 2026',
+      // returnDate: '11th Sep 2026',
       passengers: '8 Adults',
       packages: [
         {
@@ -240,6 +240,7 @@ export const UmrahPackages = () => {
     
     return (
       <div 
+      id='umrahPackages'
         className={`group bg-white dark:bg-slate-900 rounded-3xl border overflow-hidden transition-all duration-300 hover:shadow-2xl border-sky-400 dark:border-sky-500 shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40' 
             `}
       >
@@ -324,11 +325,11 @@ export const UmrahPackages = () => {
           {/* Exclusive Package Details */}
           {isDiamond && (
             <div className="space-y-2">
-              <div className="flex items-center gap-4 text-[10px] text-slate-600 dark:text-slate-400">
+              {/* <div className="flex items-center gap-4 text-[10px] text-slate-600 dark:text-slate-400">
                 <span className="flex items-center gap-1"><FaCalendar className="text-sky-500" /> {pkg.travelDate}</span>
                 <span className="flex items-center gap-1"><FaCalendar className="text-sky-500" /> {pkg.returnDate}</span>
                 <span className="flex items-center gap-1"><FaUsers className="text-sky-500" /> {pkg.passengers}</span>
-              </div>
+              </div> */}
               <div className="bg-sky-50 dark:bg-sky-900/20 rounded-xl p-3">
                 <div className="grid grid-cols-3 gap-2 text-[10px]">
                   <div>
@@ -430,11 +431,7 @@ export const UmrahPackages = () => {
       behavior: "smooth",
     });
   }}
-            className={`w-full py-3 rounded-xl text-[10px] font-extrabold uppercase tracking-widest transition-all duration-300 ${
-              isDiamond 
-                ? 'bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white shadow-lg shadow-sky-500/30' 
-                : 'bg-[#0284c7] hover:bg-sky-700 text-white shadow-lg shadow-blue-500/20'
-            }`}
+            className="bottom-1 w-full py-3 rounded-xl text-[10px] font-extrabold uppercase tracking-widest transition-all duration-300 cursor-pointer bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white shadow-lg hover:shadow-sky-400"
           >
             Contact Us
           </button>
