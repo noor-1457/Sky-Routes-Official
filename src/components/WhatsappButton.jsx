@@ -1,4 +1,4 @@
-import { FaWhatsapp } from 'react-icons/fa';
+import { FaWhatsapp, FaPhone, FaEnvelope, FaTimes } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 export const WhatsAppButton = () => {
