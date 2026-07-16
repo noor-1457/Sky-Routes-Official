@@ -1,7 +1,7 @@
 import { Hero } from "../components/Hero";
 import { Profiler } from "../components/Profiler";
 import { Contact } from "../components/Contact";
-import { WhatsAppButton } from "../components/WhatsAppButton";
+import { WhatsAppButton } from "../components/WhatsAppButton"; // ✅ Yeh sahi hai
 import { Hotels } from "../components/Hotels";
 import {Reviews} from "../components/Reviews"
 import { Deals } from "../components/Deals.jsx"
