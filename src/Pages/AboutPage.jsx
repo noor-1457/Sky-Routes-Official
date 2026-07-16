@@ -1,6 +1,6 @@
 import { About } from "../components/About.jsx"
 import { FAQAccordian } from "../components/FAQAccordian.jsx"
-import { WhatsAppButton } from "../components/WhatsAppButton.jsx"
+// import { WhatsAppButton } from "../components/WhatsAppButton.jsx"
 import tour from "../assets/tour.jpg"
 
 export const AboutPage = () => {
@@ -35,7 +35,7 @@ export const AboutPage = () => {
       {/* Main Content */}
       <About />
       <FAQAccordian />
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
     </>
   )
 }

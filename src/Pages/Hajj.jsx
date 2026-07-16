@@ -1,4 +1,4 @@
-import { WhatsAppButton } from "../components/WhatsAppButton.jsx";
+// import { WhatsAppButton } from "../components/WhatsAppButton.jsx";
 
 export const Hajj = () => {
   return (
@@ -157,7 +157,7 @@ export const Hajj = () => {
             </div>
           </div>
         </div>
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
       </section>
     </>
   );

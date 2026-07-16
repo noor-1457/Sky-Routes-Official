@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { WhatsAppButton } from "../components/WhatsAppButton.jsx"
+// import { WhatsAppButton } from "../components/WhatsAppButton.jsx"
 
 export const AirlinesPage = () => {
   const [searchTerm, setSearchTerm] = useState("")
@@ -415,7 +415,7 @@ export const AirlinesPage = () => {
           </div>
         </div>
       </div>
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
     </>
   )
 }
