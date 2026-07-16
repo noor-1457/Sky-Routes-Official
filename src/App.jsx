@@ -11,6 +11,7 @@ import { TermsAndConditions } from "./Pages/TermsAndConditions.jsx";
 import { PrivacyPolicy } from "./Pages/PrivacyPolicy.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Visa from "./Pages/Visa.jsx";
+import { WhatsAppButton } from "./components/WhatsAppButton.jsx"; // ✅ Import add karo
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             <Route path="/visa" element={<Visa />} />
           </Route>
         </Routes>
+        
+        {/* ✅ WhatsApp Button - Har page par show hoga */}
+        <WhatsAppButton />
       </BrowserRouter>
     </>
   );
