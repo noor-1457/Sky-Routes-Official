@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { 
   FaCircleNodes, 
   FaSpinner, 
@@ -61,6 +61,11 @@ export const Profiler = () => {
         }
     };
 
+    // Get circle circumference dynamically
+    const getCircleCircumference = (radius) => {
+        return 2 * Math.PI * radius;
+    };
+
     const processAssessmentReport = useCallback((e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -87,11 +92,15 @@ export const Profiler = () => {
                 // Update state
                 setScore(percentage);
 
-                // Update gauge circle
+                // Update gauge circle - using dynamic calculation
                 if (gaugeCircleRef.current) {
-                    const circumference = 339.2;
+                    const radius = gaugeCircleRef.current.r?.baseVal?.value || 54; // Get actual radius
+                    const circumference = getCircleCircumference(radius);
                     const offset = circumference - (percentage / 100) * circumference;
                     gaugeCircleRef.current.style.strokeDashoffset = offset;
+                    
+                    // Store circumference for reference
+                    gaugeCircleRef.current.dataset.circumference = circumference;
                 }
 
                 // Update score display
@@ -154,11 +163,9 @@ export const Profiler = () => {
 
     // Toast notification function
     const showNotification = (message, type = 'info') => {
-        // You can replace this with your preferred toast library
         if (typeof window !== 'undefined' && window.showToast) {
             window.showToast(message, type);
         } else {
-            // Fallback alert for development
             if (process.env.NODE_ENV === 'development') {
                 console.log(`[${type.toUpperCase()}] ${message}`);
             }
@@ -179,7 +186,10 @@ export const Profiler = () => {
 
         // Reset gauge
         if (gaugeCircleRef.current) {
-            gaugeCircleRef.current.style.strokeDashoffset = 339.2;
+            const radius = gaugeCircleRef.current.r?.baseVal?.value || 54;
+            const circumference = getCircleCircumference(radius);
+            gaugeCircleRef.current.style.strokeDashoffset = circumference;
+            gaugeCircleRef.current.dataset.circumference = circumference;
         }
         if (scoreDisplayRef.current) {
             scoreDisplayRef.current.textContent = '--';
@@ -193,6 +203,16 @@ export const Profiler = () => {
         }
         if (analysisMsgRef.current) {
             analysisMsgRef.current.textContent = '';
+        }
+    }, []);
+
+    // Initialize gauge on mount
+    useEffect(() => {
+        if (gaugeCircleRef.current) {
+            const radius = gaugeCircleRef.current.r?.baseVal?.value || 54;
+            const circumference = getCircleCircumference(radius);
+            gaugeCircleRef.current.style.strokeDashoffset = circumference;
+            gaugeCircleRef.current.dataset.circumference = circumference;
         }
     }, []);
 
@@ -314,22 +334,29 @@ export const Profiler = () => {
                             {/* Circular Gauge Section */}
                             <div className="lg:col-span-4 flex flex-col items-center justify-center border-t lg:border-t-0 lg:border-l border-slate-200/80 dark:border-slate-700/80 pt-6 lg:pt-0 lg:pl-6">
                                 <div className="relative w-36 h-36 flex items-center justify-center bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-inner">
-                                    <svg className="absolute inset-0 w-full h-full transform -rotate-90">
+                                    <svg 
+                                        className="absolute inset-0 w-full h-full transform -rotate-90" 
+                                        viewBox="0 0 120 120" 
+                                        preserveAspectRatio="xMidYMid meet"
+                                    >
                                         <circle
                                             className="fill-none stroke-slate-200 dark:stroke-slate-700 stroke-[5]"
-                                            cx="89"
-                                            cy="90"
-                                            r="75"
+                                            cx="60"
+                                            cy="60"
+                                            r="54"
                                         />
                                         <circle
                                             ref={gaugeCircleRef}
                                             id="gaugeProgressCircle"
                                             className="fill-none stroke-[#0284c7] dark:stroke-skyBrand stroke-[5] stroke-linecap-round transition-all duration-1000 ease-out"
-                                            cx="89"
-                                            cy="90"
-                                            r="75"
+                                            cx="60"
+                                            cy="60"
+                                            r="54"
                                             strokeDasharray="339.2"
                                             strokeDashoffset="339.2"
+                                            style={{ 
+                                                transition: 'stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1)'
+                                            }}
                                         />
                                     </svg>
                                     
