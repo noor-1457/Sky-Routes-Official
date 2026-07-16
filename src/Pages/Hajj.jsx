@@ -1,4 +1,4 @@
-import { WhatsAppButton } from "../components/WhatsAppButton";
+import { WhatsAppButton } from "../components/WhatsAppButton.jsx";
 
 export const Hajj = () => {
   return (
