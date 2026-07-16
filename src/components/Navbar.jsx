@@ -27,7 +27,7 @@ export const Navbar = () => {
     { path: "/airlinesPage", label: "Airlines" },
     { path: "/umrah-packages", label: "Umrah Packages" },
     { path: "/hajj", label: "Hajj 2027" },
-    // { path: "/terms", label: "Terms & Conditions" },
+    { path: "/visa", label: "Visas" },
 
   ];
 

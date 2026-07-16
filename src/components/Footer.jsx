@@ -51,7 +51,8 @@ export const Footer = () => {
                   <FaInstagram />
                 </a>
                 <a
-                  href="mailto:skyroutesmarketing@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=skyroutesmarketing@gmail.com"
+                  target="_blank"
                   className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 text-red-500 flex items-center justify-center hover:scale-110 transition"
                 >
                   <FaEnvelope />
@@ -96,7 +97,10 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/privacy" className="hover:text-[#0284c7] transition">
+                  <a
+                    href="/privacy"
+                    className="hover:text-[#0284c7] transition"
+                  >
                     Privacy Policy
                   </a>
                 </li>

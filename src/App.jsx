@@ -10,6 +10,7 @@ import { Hajj } from "./Pages/Hajj.jsx";
 import { TermsAndConditions } from "./Pages/TermsAndConditions.jsx";
 import { PrivacyPolicy } from "./Pages/PrivacyPolicy.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import Visa from "./Pages/Visa.jsx";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/hajj" element={<Hajj />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/visa" element={<Visa />} />
           </Route>
         </Routes>
       </BrowserRouter>

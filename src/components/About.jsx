@@ -11,7 +11,7 @@ export const About = () => {
       {/* WHY CHOOSE US / TRUST STRIP */}
       <section
         id="about"
-        className="py-16 bg-white dark:bg-[#070a13] border-t border-slate-100 dark:border-slate-800/60 transition-colors duration-300"
+        className="py-16 bg-slate-200 dark:bg-[#070a13] border-t border-slate-100 dark:border-slate-800/60 transition-colors duration-300"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">

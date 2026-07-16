@@ -7,7 +7,7 @@ export const AboutPage = () => {
   return (
     <>
       {/* Hero Section with Background */}
-      <div className="mt-20 relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <div className="bg-slate-200 mt-20 relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <img 
           src={tour} 
