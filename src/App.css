@@ -1,2 +1,29 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+/* src/index.css or src/App.css */
+@keyframes cloudFloat1 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(60px); }
+}
+
+@keyframes cloudFloat2 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-50px); }
+}
+
+@keyframes cloudFloat3 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(40px); }
+}
+
+.cloud-slow {
+  animation: cloudFloat1 20s ease-in-out infinite;
+}
+
+.cloud-medium {
+  animation: cloudFloat2 15s ease-in-out infinite;
+}
+
+.cloud-fast {
+  animation: cloudFloat3 10s ease-in-out infinite;
+}
