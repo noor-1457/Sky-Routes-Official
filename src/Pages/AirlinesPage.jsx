@@ -300,7 +300,7 @@ export const AirlinesPage = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50 dark:bg-[#05070f] pt-24 pb-16">
+      <div className="min-h-screen bg-sky-50 dark:bg-[#05070f] pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
@@ -361,7 +361,7 @@ export const AirlinesPage = () => {
                     {airlines.map((airline) => (
                       <div
                         key={airline.id}
-                        className="bg-white dark:bg-[#0a0f1e] rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-800 hover:border-[#0284c7] dark:hover:border-skyBrand group"
+                        className="bg-sky-200 dark:bg-[#0a0f1e] rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 dark:border-gray-800 hover:border-[#0284c7] dark:hover:border-skyBrand group"
                       >
                         <div className="flex items-start space-x-4">
                           {/* Airline Icon */}
