@@ -12,15 +12,15 @@ import logo from "../assets/logo.png";
 export const Footer = () => {
   return (
     <>
-      <footer className="bg-white dark:bg-[#070a13] border-t border-slate-100 dark:border-slate-800/60 pt-16 pb-8 transition-colors duration-300">
+      <footer className="bg-gradient-to-r from-sky-300 via-blue-20 to-sky-100  dark:from-slate-700 dark:via-slate-850 dark:to-slate-950 border-t border-slate-100 dark:border-slate-800/60 pt-16 pb-8 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
-              <div className="flex items-center mb-4">
+              <div className="flex items-center mb-3">
                 <img
                   src={logo}
                   alt="Sky Routes"
-                  className="h-16 w-auto object-contain"
+                  className="h-30 object-contain"
                 />
               </div>
               <p className="text-[11px] text-slateText dark:text-slate-400 leading-relaxed mb-4">

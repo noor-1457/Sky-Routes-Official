@@ -45,7 +45,7 @@ export const Navbar = () => {
             <img 
               src={logo} 
               alt="Sky Routes Logo" 
-              className="h-50"
+              className="h-35"
             />
           </Link>
 
