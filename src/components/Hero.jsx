@@ -315,392 +315,449 @@ export const Hero = () => {
                 </p>
               </div>
 
-              {/* Search Form */}
-              <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
-                {/* Trip Type Toggle */}
-                <div className="flex items-center gap-2 bg-slate-100/60 dark:bg-slate-800/60 p-1.5 rounded-xl">
-                  <button
-                    type="button"
-                    onClick={() => setTripType("oneway")}
-                    className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all ${
-                      tripType === "oneway"
-                        ? "bg-[#0284c7] text-white shadow-lg shadow-blue-500/25"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
-                    }`}
-                  >
-                    One Way
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setTripType("roundtrip")}
-                    className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all ${
-                      tripType === "roundtrip"
-                        ? "bg-[#0284c7] text-white shadow-lg shadow-blue-500/25"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
-                    }`}
-                  >
-                    Round Trip
-                  </button>
-                </div>
+{/* Search Form */}
+<form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+  {/* Trip Type Toggle */}
+  <div className="flex items-center gap-2 bg-slate-100/60 dark:bg-slate-800/60 p-1.5 rounded-xl">
+    <button
+      type="button"
+      onClick={() => setTripType("oneway")}
+      className={`flex-1 py-2 px-3 rounded-lg text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider transition-all ${
+        tripType === "oneway"
+          ? "bg-[#0284c7] text-white shadow-lg shadow-blue-500/25"
+          : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
+      }`}
+    >
+      One Way
+    </button>
+    <button
+      type="button"
+      onClick={() => setTripType("roundtrip")}
+      className={`flex-1 py-2 px-3 rounded-lg text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider transition-all ${
+        tripType === "roundtrip"
+          ? "bg-[#0284c7] text-white shadow-lg shadow-blue-500/25"
+          : "text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white"
+      }`}
+    >
+      Round Trip
+    </button>
+  </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* From Input */}
-                  <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition relative">
-                    <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
-                      FROM WHERE?
-                    </label>
-                    <div className="relative flex items-center">
-                      <FaPlaneDeparture className="text-slate-400 mr-2 text-xs" />
-                      <input
-                        type="text"
-                        value={from}
-                        onChange={(e) => handleFromChange(e.target.value)}
-                        onFocus={() => setShowFromSuggestions(true)}
-                        onBlur={() =>
-                          setTimeout(() => setShowFromSuggestions(false), 200)
-                        }
-                        placeholder="Lahore (LHE), Pakistan"
-                        className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white placeholder-slate-400"
-                        required
-                      />
-                    </div>
-                    {showFromSuggestions && filteredFrom.length > 0 && (
-                      <div className="absolute left-0 right-0 top-full mt-1 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 max-h-48 overflow-y-auto">
-                        {filteredFrom.map((airport, index) => (
-                          <div
-                            key={index}
-                            className="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-xs font-medium text-slate-700 dark:text-slate-200"
-                            onMouseDown={() => {
-                              setFrom(airport);
-                              setShowFromSuggestions(false);
-                            }}
-                          >
-                            {airport}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    {/* From Input */}
+    <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition relative">
+      <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
+        FROM WHERE?
+      </label>
+      <div className="relative flex items-center">
+        <FaPlaneDeparture className="text-slate-400 mr-2 text-xs flex-shrink-0" />
+        <input
+          type="text"
+          value={from}
+          onChange={(e) => handleFromChange(e.target.value)}
+          onFocus={() => setShowFromSuggestions(true)}
+          onBlur={() =>
+            setTimeout(() => setShowFromSuggestions(false), 200)
+          }
+          placeholder="Lahore (LHE), Pakistan"
+          className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white placeholder-slate-400"
+          required
+        />
+      </div>
+      {showFromSuggestions && filteredFrom.length > 0 && (
+        <div className="absolute left-0 right-0 top-full mt-1 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 max-h-48 overflow-y-auto">
+          {filteredFrom.map((airport, index) => (
+            <div
+              key={index}
+              className="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-xs font-medium text-slate-700 dark:text-slate-200"
+              onMouseDown={() => {
+                setFrom(airport);
+                setShowFromSuggestions(false);
+              }}
+            >
+              {airport}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
 
-                  {/* To Input */}
-                  <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition relative">
-                    <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
-                      TO WHERE?
-                    </label>
-                    <div className="relative flex items-center">
-                      <FaMapPin className="text-slate-400 mr-2 text-xs" />
-                      <input
-                        type="text"
-                        value={to}
-                        onChange={(e) => handleToChange(e.target.value)}
-                        onFocus={() => setShowToSuggestions(true)}
-                        onBlur={() =>
-                          setTimeout(() => setShowToSuggestions(false), 200)
-                        }
-                        placeholder="Dubai (DXB), UAE"
-                        className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white placeholder-slate-400"
-                        required
-                      />
-                    </div>
-                    {showToSuggestions && filteredTo.length > 0 && (
-                      <div className="absolute left-0 right-0 top-full mt-1 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 max-h-48 overflow-y-auto">
-                        {filteredTo.map((airport, index) => (
-                          <div
-                            key={index}
-                            className="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-xs font-medium text-slate-700 dark:text-slate-200"
-                            onMouseDown={() => {
-                              setTo(airport);
-                              setShowToSuggestions(false);
-                            }}
-                          >
-                            {airport}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
+    {/* To Input */}
+    <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition relative">
+      <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
+        TO WHERE?
+      </label>
+      <div className="relative flex items-center">
+        <FaMapPin className="text-slate-400 mr-2 text-xs flex-shrink-0" />
+        <input
+          type="text"
+          value={to}
+          onChange={(e) => handleToChange(e.target.value)}
+          onFocus={() => setShowToSuggestions(true)}
+          onBlur={() =>
+            setTimeout(() => setShowToSuggestions(false), 200)
+          }
+          placeholder="Dubai (DXB), UAE"
+          className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white placeholder-slate-400"
+          required
+        />
+      </div>
+      {showToSuggestions && filteredTo.length > 0 && (
+        <div className="absolute left-0 right-0 top-full mt-1 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 max-h-48 overflow-y-auto">
+          {filteredTo.map((airport, index) => (
+            <div
+              key={index}
+              className="px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer text-xs font-medium text-slate-700 dark:text-slate-200"
+              onMouseDown={() => {
+                setTo(airport);
+                setShowToSuggestions(false);
+              }}
+            >
+              {airport}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
 
-                {/* Passengers Section */}
-                <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
-                  <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-1.5">
-                    PASSENGERS
-                  </label>
-                  <div className="grid grid-cols-3 gap-2">
-                    <PassengerControl
-                      label="Adults"
-                      icon={FaUser}
-                      value={adults}
-                      setValue={setAdults}
-                      min={0}
-                      max={9}
-                    />
-                    <PassengerControl
-                      label="Children (2-12)"
-                      icon={FaChild}
-                      value={children}
-                      setValue={setChildren}
-                      min={0}
-                      max={9}
-                    />
-                    <PassengerControl
-                      label="Infants (0-2)"
-                      icon={FaBaby}
-                      value={infants}
-                      setValue={setInfants}
-                      min={0}
-                      max={9}
-                    />
-                  </div>
-                  <div className="text-[8px] text-slate-400 dark:text-slate-500 mt-1.5 text-right">
-                    Total: {getTotalPassengers()} passenger
-                    {getTotalPassengers() !== 1 ? "s" : ""}
-                  </div>
-                </div>
+  {/* Passengers Section - FIXED RESPONSIVE */}
+  <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
+    <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-2">
+      PASSENGERS
+    </label>
+    
+    {/* Responsive grid for passenger controls */}
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      {/* Adults */}
+      <div className="flex items-center justify-between bg-white/50 dark:bg-slate-900/50 rounded-lg px-3 py-2">
+        <div className="flex items-center gap-2">
+          <FaUser className="text-slate-400 text-sm" />
+          <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Adults</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setAdults(Math.max(0, adults - 1))}
+            className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm"
+          >
+            −
+          </button>
+          <span className="text-sm font-bold text-slate-800 dark:text-white min-w-[20px] text-center">
+            {adults}
+          </span>
+          <button
+            type="button"
+            onClick={() => setAdults(Math.min(9, adults + 1))}
+            className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm"
+          >
+            +
+          </button>
+        </div>
+      </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Departure Date */}
-                  <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
-                    <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
-                      DEPARTURE DATE
-                    </label>
-                    <div className="relative flex items-center">
-                      <FaCalendarDays className="text-slate-400 mr-2 text-xs" />
-                      <input
-                        type="date"
-                        value={departureDate}
-                        onChange={(e) => setDepartureDate(e.target.value)}
-                        className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white"
-                        required
-                      />
-                    </div>
-                  </div>
+      {/* Children */}
+      <div className="flex items-center justify-between bg-white/50 dark:bg-slate-900/50 rounded-lg px-3 py-2">
+        <div className="flex items-center gap-2">
+          <FaChild className="text-slate-400 text-sm" />
+          <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Children</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setChildren(Math.max(0, children - 1))}
+            className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm"
+          >
+            −
+          </button>
+          <span className="text-sm font-bold text-slate-800 dark:text-white min-w-[20px] text-center">
+            {children}
+          </span>
+          <button
+            type="button"
+            onClick={() => setChildren(Math.min(9, children + 1))}
+            className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm"
+          >
+            +
+          </button>
+        </div>
+      </div>
 
-                  {/* Return Date - Only show for Round Trip */}
-                  {tripType === "roundtrip" && (
-                    <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
-                      <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
-                        RETURN DATE
-                      </label>
-                      <div className="relative flex items-center">
-                        <FaCalendarDays className="text-slate-400 mr-2 text-xs" />
-                        <input
-                          type="date"
-                          value={returnDate}
-                          onChange={(e) => setReturnDate(e.target.value)}
-                          className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white"
-                          required={tripType === "roundtrip"}
-                          min={departureDate}
-                        />
-                      </div>
+      {/* Infants */}
+      <div className="flex items-center justify-between bg-white/50 dark:bg-slate-900/50 rounded-lg px-3 py-2">
+        <div className="flex items-center gap-2">
+          <FaBaby className="text-slate-400 text-sm" />
+          <span className="text-xs font-bold text-slate-700 dark:text-slate-300">Infants</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setInfants(Math.max(0, infants - 1))}
+            className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm"
+          >
+            −
+          </button>
+          <span className="text-sm font-bold text-slate-800 dark:text-white min-w-[20px] text-center">
+            {infants}
+          </span>
+          <button
+            type="button"
+            onClick={() => setInfants(Math.min(9, infants + 1))}
+            className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 flex items-center justify-center text-slate-600 dark:text-slate-300 font-bold text-sm"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div className="text-[8px] text-slate-400 dark:text-slate-500 mt-2 text-right">
+      Total: {getTotalPassengers()} passenger
+      {getTotalPassengers() !== 1 ? "s" : ""}
+    </div>
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+    {/* Departure Date */}
+    <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
+      <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
+        DEPARTURE DATE
+      </label>
+      <div className="relative flex items-center">
+        <FaCalendarDays className="text-slate-400 mr-2 text-xs flex-shrink-0" />
+        <input
+          type="date"
+          value={departureDate}
+          onChange={(e) => setDepartureDate(e.target.value)}
+          className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white"
+          required
+        />
+      </div>
+    </div>
+
+    {/* Return Date - Only show for Round Trip */}
+    {tripType === "roundtrip" && (
+      <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
+        <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
+          RETURN DATE
+        </label>
+        <div className="relative flex items-center">
+          <FaCalendarDays className="text-slate-400 mr-2 text-xs flex-shrink-0" />
+          <input
+            type="date"
+            value={returnDate}
+            onChange={(e) => setReturnDate(e.target.value)}
+            className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white"
+            required={tripType === "roundtrip"}
+            min={departureDate}
+          />
+        </div>
+      </div>
+    )}
+
+    {/* Cabin Class - Adjust grid based on trip type */}
+    {tripType === "oneway" && (
+      <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
+        <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
+          CABIN CLASS
+        </label>
+        <div className="relative flex items-center">
+          <FaChair className="text-slate-400 mr-2 text-xs flex-shrink-0" />
+          <select
+            value={flightClass}
+            onChange={(e) => setFlightClass(e.target.value)}
+            className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white cursor-pointer"
+          >
+            <option value="Economy">Economy</option>
+            <option value="Business">Business</option>
+            <option value="First Class">First Class</option>
+          </select>
+        </div>
+      </div>
+    )}
+  </div>
+
+  {/* Cabin Class - Full width for round trip */}
+  {tripType === "roundtrip" && (
+    <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
+      <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
+        CABIN CLASS
+      </label>
+      <div className="relative flex items-center">
+        <FaChair className="text-slate-400 mr-2 text-xs flex-shrink-0" />
+        <select
+          value={flightClass}
+          onChange={(e) => setFlightClass(e.target.value)}
+          className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white cursor-pointer"
+        >
+          <option value="Economy">Economy</option>
+          <option value="Business">Business</option>
+          <option value="First Class">First Class</option>
+        </select>
+      </div>
+    </div>
+  )}
+
+  <button
+    type="submit"
+    className="w-full bg-gradient-to-r from-[#0284c7] to-blue-700 hover:from-blue-700 hover:to-[#0284c7] text-white font-extrabold py-3.5 px-4 rounded-xl text-[10px] sm:text-[11px] uppercase tracking-widest transition duration-300 shadow-lg shadow-blue-500/25"
+  >
+    {tripType === "oneway"
+      ? "SEARCH DIRECT FLIGHT RATES"
+      : "SEARCH ROUND TRIP FLIGHT RATES"}
+  </button>
+
+  {/* Search Result with Price Range - Responsive */}
+  {showResult && searchResult && (
+    <div
+      className={`text-xs font-semibold rounded-xl px-3 sm:px-4 py-3 border ${
+        searchResult.error
+          ? "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800"
+          : "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800"
+      }`}
+    >
+      {searchResult.error ? (
+        <p className="text-red-600 dark:text-red-400 text-xs">
+          {searchResult.error}
+        </p>
+      ) : (
+        <div className="space-y-2">
+          <div className="flex flex-wrap justify-between items-center gap-1">
+            <div className="flex flex-wrap items-center gap-1">
+              <span className="text-slate-600 dark:text-slate-300 text-[10px] sm:text-xs italic break-words">
+                {searchResult.from} → {searchResult.to}
+              </span>
+              <span className="text-[8px] text-slate-400 dark:text-slate-500 not-italic">
+                {searchResult.tripType === "oneway"
+                  ? "One Way"
+                  : "Round Trip"}
+              </span>
+            </div>
+            <span className="text-slate-600 dark:text-slate-300 text-[8px] sm:text-[9px] font-bold not-italic">
+              {searchResult.airline}
+            </span>
+          </div>
+
+          {/* Passenger Info */}
+          <div className="flex flex-wrap justify-between text-[8px] text-slate-500 dark:text-slate-400 border-t border-green-200 dark:border-green-800 pt-1 gap-1">
+            <span className="italic">
+              {searchResult.adults > 0 &&
+                `${searchResult.adults} Adult${searchResult.adults > 1 ? "s" : ""}`}
+              {searchResult.children > 0 &&
+                `, ${searchResult.children} Child${searchResult.children > 1 ? "ren" : ""}`}
+              {searchResult.infants > 0 &&
+                `, ${searchResult.infants} Infant${searchResult.infants > 1 ? "s" : ""}`}
+              <span className="ml-1 text-[7px] text-slate-400 not-italic">
+                (Total: {searchResult.totalPassengers})
+              </span>
+            </span>
+            <span className="text-[7px] text-slate-400 not-italic">
+              {searchResult.flightClass || "Economy"}
+            </span>
+          </div>
+
+          {/* Dates Display */}
+          <div className="flex flex-wrap justify-between text-[8px] text-slate-500 dark:text-slate-400 border-t border-green-200 dark:border-green-800 pt-1 gap-1">
+            <span className="italic break-words">
+              Departure: {searchResult.departureDate || "N/A"}
+            </span>
+            {searchResult.tripType === "roundtrip" && (
+              <span className="italic break-words">
+                Return: {searchResult.returnDate || "N/A"}
+              </span>
+            )}
+          </div>
+
+          {/* Price Range Display */}
+          <div className="flex flex-wrap justify-between items-center border-t border-green-200 dark:border-green-800 pt-2 gap-2">
+            <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 italic">
+              {searchResult.tripType === "oneway"
+                ? "Total Price"
+                : "Round Trip Price"}
+            </span>
+            <div className="text-right">
+              {searchResult.tripType === "roundtrip" &&
+              searchResult.returnPrice ? (
+                <>
+                  <span className="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400 not-italic">
+                    PKR{" "}
+                    {searchResult.returnPrice.min.toLocaleString()}
+                  </span>
+                  <span className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 mx-1">
+                    -
+                  </span>
+                  <span className="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400 not-italic">
+                    PKR{" "}
+                    {searchResult.returnPrice.max.toLocaleString()}
+                  </span>
+                  {searchResult.totalPassengers > 1 && (
+                    <div className="text-[6px] sm:text-[7px] text-slate-400 dark:text-slate-500 mt-0.5 italic">
+                      (Per person: PKR{" "}
+                      {Math.round(
+                        searchResult.returnPrice.min /
+                          searchResult.totalPassengers,
+                      ).toLocaleString()}{" "}
+                      -{" "}
+                      {Math.round(
+                        searchResult.returnPrice.max /
+                          searchResult.totalPassengers,
+                      ).toLocaleString()}
+                      )
                     </div>
                   )}
-
-                  {/* Cabin Class - Adjust grid based on trip type */}
-                  {tripType === "oneway" && (
-                    <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
-                      <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
-                        CABIN CLASS
-                      </label>
-                      <div className="relative flex items-center">
-                        <FaChair className="text-slate-400 mr-2 text-xs" />
-                        <select
-                          value={flightClass}
-                          onChange={(e) => setFlightClass(e.target.value)}
-                          className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white cursor-pointer"
-                        >
-                          <option value="Economy">Economy</option>
-                          <option value="Business">Business</option>
-                          <option value="First Class">First Class</option>
-                        </select>
-                      </div>
+                  <div className="text-[6px] sm:text-[7px] text-slate-400 dark:text-slate-500 mt-0.5 italic">
+                    (One Way: PKR{" "}
+                    {searchResult.priceRange.min.toLocaleString()}{" "}
+                    -{" "}
+                    {searchResult.priceRange.max.toLocaleString()}
+                    )
+                  </div>
+                </>
+              ) : (
+                <>
+                  <span className="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400 not-italic">
+                    PKR{" "}
+                    {searchResult.priceRange.min.toLocaleString()}
+                  </span>
+                  <span className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 mx-1">
+                    -
+                  </span>
+                  <span className="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400 not-italic">
+                    PKR{" "}
+                    {searchResult.priceRange.max.toLocaleString()}
+                  </span>
+                  {searchResult.totalPassengers > 1 && (
+                    <div className="text-[6px] sm:text-[7px] text-slate-400 dark:text-slate-500 mt-0.5 italic">
+                      (Per person: PKR{" "}
+                      {Math.round(
+                        searchResult.priceRange.min /
+                          searchResult.totalPassengers,
+                      ).toLocaleString()}{" "}
+                      -{" "}
+                      {Math.round(
+                        searchResult.priceRange.max /
+                          searchResult.totalPassengers,
+                      ).toLocaleString()}
+                      )
                     </div>
                   )}
-                </div>
+                </>
+              )}
+            </div>
+          </div>
 
-                {/* Cabin Class - Full width for round trip */}
-                {tripType === "roundtrip" && (
-                  <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
-                    <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
-                      CABIN CLASS
-                    </label>
-                    <div className="relative flex items-center">
-                      <FaChair className="text-slate-400 mr-2 text-xs" />
-                      <select
-                        value={flightClass}
-                        onChange={(e) => setFlightClass(e.target.value)}
-                        className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white cursor-pointer"
-                      >
-                        <option value="Economy">Economy</option>
-                        <option value="Business">Business</option>
-                        <option value="First Class">First Class</option>
-                      </select>
-                    </div>
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-[#0284c7] to-blue-700 hover:from-blue-700 hover:to-[#0284c7] text-white font-extrabold py-3.5 px-4 rounded-xl text-[10px] uppercase tracking-widest transition duration-300 shadow-lg shadow-blue-500/25"
-                >
-                  {tripType === "oneway"
-                    ? "SEARCH DIRECT FLIGHT RATES"
-                    : "SEARCH ROUND TRIP FLIGHT RATES"}
-                </button>
-
-                {/* Search Result with Price Range */}
-                {showResult && searchResult && (
-                  <div
-                    className={`text-xs font-semibold rounded-xl px-4 py-3 border ${
-                      searchResult.error
-                        ? "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800"
-                        : "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800"
-                    }`}
-                  >
-                    {searchResult.error ? (
-                      <p className="text-red-600 dark:text-red-400">
-                        {searchResult.error}
-                      </p>
-                    ) : (
-                      <div className="space-y-2">
-                        <div className="flex justify-between items-center">
-                          <div>
-                            {/* ✅ ITALIC - Flight route */}
-                            <span className="text-slate-600 dark:text-slate-300 text-[10px] italic">
-                              {searchResult.from} → {searchResult.to}
-                            </span>
-                            <span className="text-[8px] text-slate-400 dark:text-slate-500 ml-2 not-italic">
-                              {searchResult.tripType === "oneway"
-                                ? "One Way"
-                                : "Round Trip"}
-                            </span>
-                          </div>
-                          <span className="text-slate-600 dark:text-slate-300 text-[9px] font-bold not-italic">
-                            {searchResult.airline}
-                          </span>
-                        </div>
-
-                        {/* Passenger Info */}
-                        <div className="flex justify-between text-[8px] text-slate-500 dark:text-slate-400 border-t border-green-200 dark:border-green-800 pt-1">
-                          <span className="italic">
-                            {searchResult.adults > 0 &&
-                              `${searchResult.adults} Adult${searchResult.adults > 1 ? "s" : ""}`}
-                            {searchResult.children > 0 &&
-                              `, ${searchResult.children} Child${searchResult.children > 1 ? "ren" : ""}`}
-                            {searchResult.infants > 0 &&
-                              `, ${searchResult.infants} Infant${searchResult.infants > 1 ? "s" : ""}`}
-                            <span className="ml-1 text-[7px] text-slate-400 not-italic">
-                              (Total: {searchResult.totalPassengers})
-                            </span>
-                          </span>
-                          <span className="text-[7px] text-slate-400 not-italic">
-                            {searchResult.flightClass || "Economy"}
-                          </span>
-                        </div>
-
-                        {/* Dates Display */}
-                        <div className="flex justify-between text-[8px] text-slate-500 dark:text-slate-400 border-t border-green-200 dark:border-green-800 pt-1">
-                          <span className="italic">
-                            Departure: {searchResult.departureDate || "N/A"}
-                          </span>
-                          {searchResult.tripType === "roundtrip" && (
-                            <span className="italic">
-                              Return: {searchResult.returnDate || "N/A"}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Price Range Display */}
-                        <div className="flex justify-between items-center border-t border-green-200 dark:border-green-800 pt-2">
-                          <span className="text-[10px] text-slate-500 dark:text-slate-400 italic">
-                            {searchResult.tripType === "oneway"
-                              ? "Total Price"
-                              : "Round Trip Price"}
-                          </span>
-                          <div className="text-right">
-                            {searchResult.tripType === "roundtrip" &&
-                            searchResult.returnPrice ? (
-                              <>
-                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400 not-italic">
-                                  PKR{" "}
-                                  {searchResult.returnPrice.min.toLocaleString()}
-                                </span>
-                                <span className="text-xs text-slate-400 dark:text-slate-500 mx-1">
-                                  -
-                                </span>
-                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400 not-italic">
-                                  PKR{" "}
-                                  {searchResult.returnPrice.max.toLocaleString()}
-                                </span>
-                                {searchResult.totalPassengers > 1 && (
-                                  <div className="text-[7px] text-slate-400 dark:text-slate-500 mt-0.5 italic">
-                                    (Per person: PKR{" "}
-                                    {Math.round(
-                                      searchResult.returnPrice.min /
-                                        searchResult.totalPassengers,
-                                    ).toLocaleString()}{" "}
-                                    -{" "}
-                                    {Math.round(
-                                      searchResult.returnPrice.max /
-                                        searchResult.totalPassengers,
-                                    ).toLocaleString()}
-                                    )
-                                  </div>
-                                )}
-                                <div className="text-[7px] text-slate-400 dark:text-slate-500 mt-0.5 italic">
-                                  (One Way: PKR{" "}
-                                  {searchResult.priceRange.min.toLocaleString()}{" "}
-                                  -{" "}
-                                  {searchResult.priceRange.max.toLocaleString()}
-                                  )
-                                </div>
-                              </>
-                            ) : (
-                              <>
-                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400 not-italic">
-                                  PKR{" "}
-                                  {searchResult.priceRange.min.toLocaleString()}
-                                </span>
-                                <span className="text-xs text-slate-400 dark:text-slate-500 mx-1">
-                                  -
-                                </span>
-                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400 not-italic">
-                                  PKR{" "}
-                                  {searchResult.priceRange.max.toLocaleString()}
-                                </span>
-                                {searchResult.totalPassengers > 1 && (
-                                  <div className="text-[7px] text-slate-400 dark:text-slate-500 mt-0.5 italic">
-                                    (Per person: PKR{" "}
-                                    {Math.round(
-                                      searchResult.priceRange.min /
-                                        searchResult.totalPassengers,
-                                    ).toLocaleString()}{" "}
-                                    -{" "}
-                                    {Math.round(
-                                      searchResult.priceRange.max /
-                                        searchResult.totalPassengers,
-                                    ).toLocaleString()}
-                                    )
-                                  </div>
-                                )}
-                              </>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Cancellation Policy */}
-                        <div className="mt-2 pt-2 border-t border-green-200 dark:border-green-800">
-                          {/* ✅ ITALIC - Policy text */}
-                          <p className="text-[14px] text-slate-400 dark:text-slate-500 text-center leading-relaxed italic">
-                            Approximate fare. Final price may vary depending on
-                            availability and booking date.
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </form>
+          {/* Cancellation Policy */}
+          <div className="mt-2 pt-2 border-t border-green-200 dark:border-green-800">
+            <p className="text-[10px] sm:text-xs md:text-sm text-slate-400 dark:text-slate-500 text-center leading-relaxed italic px-1">
+              Approximate fare. Final price may vary depending on
+              availability and booking date.
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  )}
+</form>
             </div>
           </div>
         </div>
