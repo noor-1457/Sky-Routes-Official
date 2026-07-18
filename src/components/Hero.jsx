@@ -8,7 +8,9 @@ export const Hero = () => {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [departureDate, setDepartureDate] = useState('');
+  const [returnDate, setReturnDate] = useState('');
   const [flightClass, setFlightClass] = useState('Economy');
+  const [tripType, setTripType] = useState('oneway'); // 'oneway' or 'roundtrip'
   const [searchResult, setSearchResult] = useState(null);
   const [showResult, setShowResult] = useState(false);
   const [airports, setAirports] = useState([]);
@@ -57,10 +59,23 @@ export const Hero = () => {
       return;
     }
 
+    if (tripType === 'roundtrip' && !returnDate) {
+      setSearchResult({ error: 'Please select a return date for round trip.' });
+      setShowResult(true);
+      return;
+    }
+
+    // Search for flight
     const result = searchFlight(from, to);
 
     if (result) {
-      setSearchResult(result);
+      // Add trip type and dates to result
+      setSearchResult({
+        ...result,
+        tripType: tripType,
+        departureDate: departureDate,
+        returnDate: returnDate
+      });
       setShowResult(true);
     } else {
       setSearchResult({
@@ -150,6 +165,32 @@ export const Hero = () => {
 
               {/* Search Form */}
               <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
+                {/* Trip Type Toggle */}
+                <div className="flex items-center gap-2 bg-slate-100/60 dark:bg-slate-800/60 p-1.5 rounded-xl">
+                  <button
+                    type="button"
+                    onClick={() => setTripType('oneway')}
+                    className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all ${
+                      tripType === 'oneway'
+                        ? 'bg-[#0284c7] text-white shadow-lg shadow-blue-500/25'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
+                    }`}
+                  >
+                    One Way
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTripType('roundtrip')}
+                    className={`flex-1 py-2 px-3 rounded-lg text-[10px] font-extrabold uppercase tracking-wider transition-all ${
+                      tripType === 'roundtrip'
+                        ? 'bg-[#0284c7] text-white shadow-lg shadow-blue-500/25'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
+                    }`}
+                  >
+                    Round Trip
+                  </button>
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* From Input */}
                   <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition relative">
@@ -225,6 +266,7 @@ export const Hero = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Departure Date */}
                   <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
                     <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
                       DEPARTURE DATE
@@ -241,6 +283,50 @@ export const Hero = () => {
                     </div>
                   </div>
 
+                  {/* Return Date - Only show for Round Trip */}
+                  {tripType === 'roundtrip' && (
+                    <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
+                      <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
+                        RETURN DATE
+                      </label>
+                      <div className="relative flex items-center">
+                        <FaCalendarDays className="text-slate-400 mr-2 text-xs" />
+                        <input
+                          type="date"
+                          value={returnDate}
+                          onChange={(e) => setReturnDate(e.target.value)}
+                          className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white"
+                          required={tripType === 'roundtrip'}
+                          min={departureDate}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Cabin Class - Adjust grid based on trip type */}
+                  {tripType === 'oneway' && (
+                    <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
+                      <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
+                        CABIN CLASS
+                      </label>
+                      <div className="relative flex items-center">
+                        <FaChair className="text-slate-400 mr-2 text-xs" />
+                        <select
+                          value={flightClass}
+                          onChange={(e) => setFlightClass(e.target.value)}
+                          className="w-full bg-transparent border-none focus:outline-none text-xs font-bold text-slate-800 dark:text-white cursor-pointer"
+                        >
+                          <option value="Economy">Economy</option>
+                          <option value="Business">Business</option>
+                          <option value="First Class">First Class</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Cabin Class - Full width for round trip */}
+                {tripType === 'roundtrip' && (
                   <div className="bg-slate-100/60 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 p-3 rounded-xl text-left transition">
                     <label className="block text-[8px] uppercase tracking-wider font-extrabold text-slate-400 mb-0.5">
                       CABIN CLASS
@@ -258,13 +344,13 @@ export const Hero = () => {
                       </select>
                     </div>
                   </div>
-                </div>
+                )}
 
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-[#0284c7] to-blue-700 hover:from-blue-700 hover:to-[#0284c7] text-white font-extrabold py-3.5 px-4 rounded-xl text-[10px] uppercase tracking-widest transition duration-300 shadow-lg shadow-blue-500/25"
                 >
-                  SEARCH DIRECT FLIGHT RATES
+                  {tripType === 'oneway' ? 'SEARCH DIRECT FLIGHT RATES' : 'SEARCH ROUND TRIP FLIGHT RATES'}
                 </button>
 
                 {/* Search Result with Price Range */}
@@ -279,25 +365,57 @@ export const Hero = () => {
                     ) : (
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
-                          <span className="text-slate-600 dark:text-slate-300 text-[10px]">
-                            {searchResult.from} → {searchResult.to}
-                          </span>
+                          <div>
+                            <span className="text-slate-600 dark:text-slate-300 text-[10px]">
+                              {searchResult.from} → {searchResult.to}
+                            </span>
+                            <span className="text-[8px] text-slate-400 dark:text-slate-500 ml-2">
+                              {searchResult.tripType === 'oneway' ? 'One Way' : 'Round Trip'}
+                            </span>
+                          </div>
                           <span className="text-slate-600 dark:text-slate-300 text-[9px] font-bold">
                             {searchResult.airline}
                           </span>
                         </div>
                         
-                        {/* Price Range Display */}
+                        {/* Dates Display */}
+                        <div className="flex justify-between text-[8px] text-slate-500 dark:text-slate-400 border-t border-green-200 dark:border-green-800 pt-1">
+                          <span>Departure: {searchResult.departureDate || 'N/A'}</span>
+                          {searchResult.tripType === 'roundtrip' && (
+                            <span>Return: {searchResult.returnDate || 'N/A'}</span>
+                          )}
+                        </div>
+                        
+                        {/* Price Range Display - Show return prices for round trip */}
                         <div className="flex justify-between items-center border-t border-green-200 dark:border-green-800 pt-2">
-                          <span className="text-[10px] text-slate-500 dark:text-slate-400">Price Range</span>
+                          <span className="text-[10px] text-slate-500 dark:text-slate-400">
+                            {searchResult.tripType === 'oneway' ? 'One Way Price' : 'Round Trip Price'}
+                          </span>
                           <div className="text-right">
-                            <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
-                              PKR {searchResult.priceRange.min.toLocaleString()}
-                            </span>
-                            <span className="text-xs text-slate-400 dark:text-slate-500 mx-1">-</span>
-                            <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
-                              PKR {searchResult.priceRange.max.toLocaleString()}
-                            </span>
+                            {searchResult.tripType === 'roundtrip' && searchResult.returnPrice ? (
+                              <>
+                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
+                                  PKR {searchResult.returnPrice.min.toLocaleString()}
+                                </span>
+                                <span className="text-xs text-slate-400 dark:text-slate-500 mx-1">-</span>
+                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
+                                  PKR {searchResult.returnPrice.max.toLocaleString()}
+                                </span>
+                                <div className="text-[7px] text-slate-400 dark:text-slate-500 mt-0.5">
+                                  (One Way: PKR {searchResult.priceRange.min.toLocaleString()} - {searchResult.priceRange.max.toLocaleString()})
+                                </div>
+                              </>
+                            ) : (
+                              <>
+                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
+                                  PKR {searchResult.priceRange.min.toLocaleString()}
+                                </span>
+                                <span className="text-xs text-slate-400 dark:text-slate-500 mx-1">-</span>
+                                <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
+                                  PKR {searchResult.priceRange.max.toLocaleString()}
+                                </span>
+                              </>
+                            )}
                           </div>
                         </div>
                         

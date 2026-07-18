@@ -1,5 +1,22 @@
 // src/data/flightRates.js
 
+// Helper function to calculate return prices
+const calculateReturnPrice = (min, max) => {
+  // For international flights, return is typically 1.8x to 2x the one-way price
+  return {
+    min: Math.round(min * 1.9),
+    max: Math.round(max * 1.9)
+  };
+};
+
+const calculateDomesticReturnPrice = (min, max) => {
+  // For domestic flights, return is typically 1.6x to 1.8x
+  return {
+    min: Math.round(min * 1.7),
+    max: Math.round(max * 1.7)
+  };
+};
+
 export const flightRates = {
   // ==================== PAKISTAN TO GULF COUNTRIES ====================
   
@@ -911,7 +928,25 @@ export const searchFlight = (from, to) => {
   );
   
   if (key) {
-    return flightRates[key];
+    const flight = flightRates[key];
+    
+    // Check if it's a domestic flight (Pakistan cities)
+    const fromCode = flight.from.match(/\(([^)]+)\)/)?.[1] || '';
+    const toCode = flight.to.match(/\(([^)]+)\)/)?.[1] || '';
+    const isDomestic = fromCode && toCode && 
+      ['LHE', 'KHI', 'ISB', 'PEW', 'MUX', 'SKT', 'LYP', 'UET', 'GIL'].includes(fromCode) &&
+      ['LHE', 'KHI', 'ISB', 'PEW', 'MUX', 'SKT', 'LYP', 'UET', 'GIL'].includes(toCode);
+    
+    // Calculate return price based on domestic or international
+    const returnPrice = isDomestic 
+      ? calculateDomesticReturnPrice(flight.priceRange.min, flight.priceRange.max)
+      : calculateReturnPrice(flight.priceRange.min, flight.priceRange.max);
+    
+    // Return flight data with return price
+    return {
+      ...flight,
+      returnPrice: returnPrice
+    };
   }
   return null;
 };
@@ -919,6 +954,14 @@ export const searchFlight = (from, to) => {
 // Format price range
 export const formatPriceRange = (priceRange) => {
   return `PKR ${priceRange.min.toLocaleString()} - ${priceRange.max.toLocaleString()}`;
+};
+
+// Get price based on trip type
+export const getPriceForTrip = (flight, tripType) => {
+  if (tripType === 'roundtrip' && flight.returnPrice) {
+    return flight.returnPrice;
+  }
+  return flight.priceRange;
 };
 
 export default flightRates;
