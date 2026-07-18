@@ -69,8 +69,7 @@ export const TermsAndConditions = () => {
             </h2>
             <ul className="space-y-3">
               {[
-                "Cancellation and refund policies vary depending on the airline, hotel, embassy, or service provider.",
-                "Any applicable cancellation charges or service fees will be deducted.",
+"Cancellation and refund policies vary by airline, hotel, embassy, or service provider. A 15% service fee will be deducted by our travel agency in addition to any airline deductions."                "Any applicable cancellation charges or service fees will be deducted.",
                 "Refund processing time depends on the respective airline, hotel, embassy, or supplier."
               ].map((item, index) => (
                 <li key={index} className="flex items-start gap-2 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
