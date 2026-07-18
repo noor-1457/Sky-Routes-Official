@@ -224,14 +224,19 @@ export const Profiler = () => {
                         <div className="absolute inset-0 bg-gradient-to-tr from-skyBrand/5 via-transparent to-transparent pointer-events-none"></div>
                         
                         <div className="text-center mb-10 relative z-10">
-                            <span className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-[#0284c7] dark:text-skyBrand block mb-3">
-                                <FaCircleNodes className="inline mr-1.5" /> Visa Case Profiler
+                            {/* ✅ ITALIC - Visa Case Profiler */}
+                            <span className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-[#0284c7] dark:text-skyBrand block mb-3 italic">
+                                <FaCircleNodes className="inline mr-1.5 not-italic" /> Visa Case Profiler
                             </span>
+                            
                             <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900 dark:text-white mb-4">
                                 PORTAL CASE STRENGTH MEASURE
                             </h3>
-                            <p className="text-slateText dark:text-slate-400 text-xs font-medium max-w-xl mx-auto mt-2">
-                                Answer dynamic questions below to calculate and assess your embassy file alignment instantly.
+                            
+                            {/* ✅ ITALIC - Description with mix */}
+                            <p className="text-slateText dark:text-slate-400 text-xs font-medium max-w-xl mx-auto mt-2 italic">
+                                Answer dynamic questions below to calculate and assess 
+                                <span className="not-italic font-bold"> your embassy file</span> alignment instantly.
                             </p>
                         </div>
 
@@ -312,7 +317,7 @@ export const Profiler = () => {
                                         >
                                             {isLoading ? (
                                                 <>
-                                                    <FaSpinner className="inline mr-2 animate-spin" />
+                                                    <FaSpinner className="inline mr-2 animate-spin not-italic" />
                                                     PROCESSING...
                                                 </>
                                             ) : (
@@ -387,10 +392,11 @@ export const Profiler = () => {
                                     id="gaugeResultCard"
                                     className={`text-center mt-4 animate-fadeIn ${showResult ? 'block' : 'hidden'}`}
                                 >
+                                    {/* ✅ ITALIC - Analysis message */}
                                     <p
                                         ref={analysisMsgRef}
                                         id="gaugeAnalysisMsg"
-                                        className="text-slateText dark:text-slate-300 text-[10px] leading-relaxed max-w-[180px] mb-2 font-semibold"
+                                        className="text-slateText dark:text-slate-300 text-[10px] leading-relaxed max-w-[180px] mb-2 font-semibold italic"
                                     >
                                         {analysisMessage}
                                     </p>
@@ -401,7 +407,7 @@ export const Profiler = () => {
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-3 py-1.5 rounded-lg text-[8px] uppercase tracking-widest transition shadow-lg shadow-emerald-500/10 hover:scale-105 transform duration-200"
                                     >
-                                        <FaWhatsapp className="text-[10px]" />
+                                        <FaWhatsapp className="text-[10px] not-italic" />
                                         Boost Score Free
                                     </a>
                                 </div>

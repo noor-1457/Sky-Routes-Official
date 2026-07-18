@@ -24,7 +24,8 @@ export const Hajj = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-white/90 text-xs font-medium tracking-wider uppercase">
+              {/* ✅ ITALIC - Badge text */}
+              <span className="text-white/90 text-xs font-medium tracking-wider uppercase italic">
                 Hajj 2027 • Insha'Allah
               </span>
             </div>
@@ -37,11 +38,12 @@ export const Hajj = () => {
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-white/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            {/* ✅ ITALIC - Description */}
+            <p className="text-white/80 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed italic">
               Choose from Economy, Premium, and VIP packages designed to suit 
-              different budgets and preferences. Let us help you fulfill your 
-              spiritual journey with ease and comfort.
+              <span className="not-italic font-semibold"> different budgets</span> and preferences. 
+              Let us help you fulfill your <span className="not-italic font-semibold">spiritual journey</span> 
+              with ease and comfort.
             </p>
           </div>
 
@@ -54,15 +56,17 @@ export const Hajj = () => {
         {/* What's Included */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="text-center mb-12">
-            <span className="text-sky-600 dark:text-sky-400 text-sm font-semibold tracking-wider uppercase">
-              What's Included
+            {/* ✅ ITALIC - What's Included */}
+            <span className="text-sky-600 dark:text-sky-400 text-sm font-semibold tracking-wider uppercase italic">
+              🕋 What's Included
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-3">
               Hajj 2027 Packages
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-sky-500 to-emerald-500 mx-auto rounded-full"></div>
-            <p className="text-slate-600 dark:text-slate-300 mt-4 text-sm sm:text-base">
-              Everything you need for a smooth and organized Hajj journey.
+            {/* ✅ ITALIC - Description */}
+            <p className="text-slate-600 dark:text-slate-300 mt-4 text-sm sm:text-base italic">
+              Everything you need for a <span className="not-italic font-semibold">smooth and organized</span> Hajj journey.
             </p>
           </div>
 
@@ -105,15 +109,17 @@ export const Hajj = () => {
         {/* How It Works - Steps */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="text-center mb-12">
-            <span className="text-sky-600 dark:text-sky-400 text-sm font-semibold tracking-wider uppercase">
-              Simple Process
+            {/* ✅ ITALIC - Simple Process */}
+            <span className="text-sky-600 dark:text-sky-400 text-sm font-semibold tracking-wider uppercase italic">
+              📋 Simple Process
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-3">
               How It Works
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-sky-500 to-emerald-500 mx-auto rounded-full"></div>
-            <p className="text-slate-600 dark:text-slate-300 mt-4 text-sm sm:text-base">
-              Four simple steps to begin your sacred journey
+            {/* ✅ ITALIC - Description */}
+            <p className="text-slate-600 dark:text-slate-300 mt-4 text-sm sm:text-base italic">
+              Four simple steps to begin your <span className="not-italic font-semibold">sacred journey</span>
             </p>
           </div>
 
@@ -128,8 +134,9 @@ export const Hajj = () => {
                 <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
                   Contact Us
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Share your details with our team to begin the process.
+                {/* ✅ ITALIC - Step description */}
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+                  Share your details with our <span className="not-italic font-semibold">dedicated team</span> to begin the process.
                 </p>
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-sky-500/0 group-hover:bg-sky-500 transition-all duration-300 rounded-full"></div>
               </div>
@@ -145,8 +152,9 @@ export const Hajj = () => {
                 <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
                   Get Package Details
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Receive information about packages, pricing and requirements.
+                {/* ✅ ITALIC - Step description */}
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+                  Receive information about <span className="not-italic font-semibold">packages, pricing</span> and requirements.
                 </p>
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-sky-500/0 group-hover:bg-sky-500 transition-all duration-300 rounded-full"></div>
               </div>
@@ -162,8 +170,9 @@ export const Hajj = () => {
                 <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
                   Document & Payment
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Complete registration with guidance from our consultants.
+                {/* ✅ ITALIC - Step description */}
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+                  Complete registration with <span className="not-italic font-semibold">guidance from our consultants</span>.
                 </p>
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-sky-500/0 group-hover:bg-sky-500 transition-all duration-300 rounded-full"></div>
               </div>
@@ -179,8 +188,9 @@ export const Hajj = () => {
                 <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
                   Prepare For Journey
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Attend briefings and get ready for your Hajj pilgrimage.
+                {/* ✅ ITALIC - Step description */}
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed italic">
+                  Attend briefings and get ready for your <span className="not-italic font-semibold">Hajj pilgrimage</span>.
                 </p>
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-sky-500/0 group-hover:bg-sky-500 transition-all duration-300 rounded-full"></div>
               </div>

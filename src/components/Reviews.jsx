@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { FaStar, FaRegStar, FaWhatsapp } from 'react-icons/fa';
 
 export const Reviews = () => {
@@ -78,9 +78,11 @@ export const Reviews = () => {
             <section id="reviews" className="py-20 bg-lightBg dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800/60 transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-2xl mx-auto mb-14">
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2">
-                            CLIENT FEEDBACK
+                        {/* ✅ ITALIC - Client Feedback */}
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2 italic">
+                            💬 CLIENT FEEDBACK
                         </span>
+                        
                         <h2 className="text-3xl font-extrabold text-[#0f172a] dark:text-white uppercase">
                             What Our Clients Say
                         </h2>
@@ -96,7 +98,8 @@ export const Reviews = () => {
                                     <div className="flex text-amber-400 text-xs mb-3 gap-0.5">
                                         {renderStars(review.rating)}
                                     </div>
-                                    <p className="text-xs text-slateText dark:text-slate-300 leading-relaxed mb-4">
+                                    {/* ✅ ITALIC - Review text */}
+                                    <p className="text-xs text-slateText dark:text-slate-300 leading-relaxed mb-4 italic">
                                         {review.text}
                                     </p>
                                 </div>
@@ -108,13 +111,14 @@ export const Reviews = () => {
                                         <p className="text-[11px] font-extrabold text-deepBase dark:text-white">
                                             {review.name}
                                             {review.isVerified && (
-                                                <span className="ml-1 text-[#0284c7] dark:text-skyBrand text-[9px] font-normal">✓</span>
+                                                <span className="ml-1 text-[#0284c7] dark:text-skyBrand text-[9px] font-normal not-italic">✓</span>
                                             )}
                                         </p>
-                                        <p className="text-[9px] text-slate-400 dark:text-slate-500">
+                                        {/* ✅ ITALIC - Location with mix */}
+                                        <p className="text-[9px] text-slate-400 dark:text-slate-500 italic">
                                             {review.icon === 'whatsapp' ? (
                                                 <>
-                                                    <FaWhatsapp className="text-emerald-500 inline mr-0.5" />
+                                                    <FaWhatsapp className="text-emerald-500 inline mr-0.5 not-italic" />
                                                     {review.location}
                                                 </>
                                             ) : (

@@ -177,9 +177,6 @@ export const UmrahPackages = () => {
       airline: 'PIA',
       duration: '28 Days',
       isExclusive: true,
-      // travelDate: '15th Aug 2026',
-      // returnDate: '11th Sep 2026',
-      passengers: '8 Adults',
       packages: [
         {
           id: 1,
@@ -254,8 +251,9 @@ export const UmrahPackages = () => {
         } text-white`}>
           <div className="flex items-center justify-between">
             <div>
-              {/* <span className="text-3xl">{pkg.icon}</span> */}
-              <h3 className="text-xl font-black uppercase mt-1 tracking-tight">{pkg.name}</h3>
+              <h3 className="text-xl font-black uppercase mt-1 tracking-tight">
+                {pkg.name}
+              </h3>
               <span className={`inline-block px-3 py-0.5 rounded-full text-[9px] font-bold uppercase mt-1 ${pkg.badgeColor} bg-opacity-30`}>
                 {pkg.badge}
               </span>
@@ -269,8 +267,8 @@ export const UmrahPackages = () => {
 
         {/* Body */}
         <div className="p-6 space-y-4">
-          {/* Description */}
-          <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+          {/* ✅ ITALIC - Description */}
+          <p className="text-[11px] text-slate-600 dark:text-slate-400 font-medium leading-relaxed italic">
             {pkg.description}
           </p>
 
@@ -280,15 +278,15 @@ export const UmrahPackages = () => {
               <div className="flex items-center justify-between text-[10px]">
                 <div>
                   <span className="text-slate-400 dark:text-slate-500">PNR</span>
-                  <span className="font-bold text-slate-700 dark:text-slate-300 block">{pkg.pnr}</span>
+                  <span className="font-bold text-slate-700 dark:text-slate-300 block not-italic">{pkg.pnr}</span>
                 </div>
                 <div>
                   <span className="text-slate-400 dark:text-slate-500">Airline</span>
-                  <span className="font-bold text-slate-700 dark:text-slate-300 block">{pkg.airline}</span>
+                  <span className="font-bold text-slate-700 dark:text-slate-300 block not-italic">{pkg.airline}</span>
                 </div>
                 <div>
                   <span className="text-slate-400 dark:text-slate-500">Baggage</span>
-                  <span className="font-bold text-slate-700 dark:text-slate-300 block">{pkg.baggage}</span>
+                  <span className="font-bold text-slate-700 dark:text-slate-300 block not-italic">{pkg.baggage}</span>
                 </div>
               </div>
             </div>
@@ -298,24 +296,26 @@ export const UmrahPackages = () => {
           {!isDiamond && (
             <div className="grid grid-cols-2 gap-2">
               <div className="bg-emerald-50 dark:bg-emerald-900/20 p-2 rounded-lg">
-                <div className="flex items-center gap-1 text-[8px] text-emerald-600 dark:text-emerald-400 font-bold">
-                  <FaPlane className="text-[10px]" /> Outward
+                <div className="flex items-center gap-1 text-[8px] text-emerald-600 dark:text-emerald-400 font-bold not-italic">
+                  <FaPlane className="text-[10px] not-italic" /> Outward
                 </div>
-                <div className="text-[10px] font-bold text-slate-700 dark:text-slate-300">
+                <div className="text-[10px] font-bold text-slate-700 dark:text-slate-300 not-italic">
                   {pkg.flights.outward.flight}
                 </div>
-                <div className="text-[8px] text-slate-500 dark:text-slate-400">
+                {/* ✅ ITALIC - Flight details */}
+                <div className="text-[8px] text-slate-500 dark:text-slate-400 italic">
                   {pkg.flights.outward.date} • {pkg.flights.outward.from} → {pkg.flights.outward.to}
                 </div>
               </div>
               <div className="bg-rose-50 dark:bg-rose-900/20 p-2 rounded-lg">
-                <div className="flex items-center gap-1 text-[8px] text-rose-600 dark:text-rose-400 font-bold">
-                  <FaPlane className="text-[10px]" /> Return
+                <div className="flex items-center gap-1 text-[8px] text-rose-600 dark:text-rose-400 font-bold not-italic">
+                  <FaPlane className="text-[10px] not-italic" /> Return
                 </div>
-                <div className="text-[10px] font-bold text-slate-700 dark:text-slate-300">
+                <div className="text-[10px] font-bold text-slate-700 dark:text-slate-300 not-italic">
                   {pkg.flights.return.flight}
                 </div>
-                <div className="text-[8px] text-slate-500 dark:text-slate-400">
+                {/* ✅ ITALIC - Flight details */}
+                <div className="text-[8px] text-slate-500 dark:text-slate-400 italic">
                   {pkg.flights.return.date} • {pkg.flights.return.from} → {pkg.flights.return.to}
                 </div>
               </div>
@@ -325,24 +325,19 @@ export const UmrahPackages = () => {
           {/* Exclusive Package Details */}
           {isDiamond && (
             <div className="space-y-2">
-              {/* <div className="flex items-center gap-4 text-[10px] text-slate-600 dark:text-slate-400">
-                <span className="flex items-center gap-1"><FaCalendar className="text-sky-500" /> {pkg.travelDate}</span>
-                <span className="flex items-center gap-1"><FaCalendar className="text-sky-500" /> {pkg.returnDate}</span>
-                <span className="flex items-center gap-1"><FaUsers className="text-sky-500" /> {pkg.passengers}</span>
-              </div> */}
               <div className="bg-sky-50 dark:bg-sky-900/20 rounded-xl p-3">
                 <div className="grid grid-cols-3 gap-2 text-[10px]">
                   <div>
                     <span className="text-slate-400 dark:text-slate-500 block text-[8px]">Without Air</span>
-                    <span className="font-bold text-slate-700 dark:text-slate-300">PKR {pkg.prices.withoutAir}</span>
+                    <span className="font-bold text-slate-700 dark:text-slate-300 not-italic">PKR {pkg.prices.withoutAir}</span>
                   </div>
                   <div>
                     <span className="text-slate-400 dark:text-slate-500 block text-[8px]">Flight</span>
-                    <span className="font-bold text-slate-700 dark:text-slate-300">PKR {pkg.prices.flightPerPerson}</span>
+                    <span className="font-bold text-slate-700 dark:text-slate-300 not-italic">PKR {pkg.prices.flightPerPerson}</span>
                   </div>
                   <div>
                     <span className="text-slate-400 dark:text-slate-500 block text-[8px]">With Air</span>
-                    <span className="font-bold text-sky-600 dark:text-sky-400">PKR {pkg.prices.withAir}</span>
+                    <span className="font-bold text-sky-600 dark:text-sky-400 not-italic">PKR {pkg.prices.withAir}</span>
                   </div>
                 </div>
               </div>
@@ -356,29 +351,31 @@ export const UmrahPackages = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-1">
-                      <FaHotel className="text-[10px] text-[#0284c7]" />
-                      <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300">
+                      <FaHotel className="text-[10px] text-[#0284c7] not-italic" />
+                      {/* ✅ ITALIC - Hotel name */}
+                      <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300 italic">
                         {hotel.hotel}
                       </span>
                       {hotel.star && (
-                        <span className="text-[8px] text-amber-500">⭐ {hotel.star}</span>
+                        <span className="text-[8px] text-amber-500 not-italic">⭐ {hotel.star}</span>
                       )}
                     </div>
-                    <div className="flex items-center gap-2 text-[8px] text-slate-500 dark:text-slate-400">
-                      <span><FaMapMarkerAlt className="inline text-[#0284c7]" /> {hotel.distance}</span>
-                      <span><FaClock className="inline text-[#0284c7]" /> {hotel.nights} Nights</span>
-                      {hotel.room && <span><FaBed className="inline text-[#0284c7]" /> {hotel.room}</span>}
+                    {/* ✅ ITALIC - Hotel details */}
+                    <div className="flex items-center gap-2 text-[8px] text-slate-500 dark:text-slate-400 italic">
+                      <span><FaMapMarkerAlt className="inline text-[#0284c7] not-italic" /> {hotel.distance}</span>
+                      <span><FaClock className="inline text-[#0284c7] not-italic" /> {hotel.nights} Nights</span>
+                      {hotel.room && <span><FaBed className="inline text-[#0284c7] not-italic" /> {hotel.room}</span>}
                     </div>
                   </div>
                   <div className="text-right">
                     {hotel.prices.perPerson ? (
-                      <div className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                      <div className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 not-italic">
                         PKR {hotel.prices.perPerson}
                       </div>
                     ) : (
                       <div className="text-[8px] text-slate-500 dark:text-slate-400">
                         {Object.entries(hotel.prices).map(([key, val]) => (
-                          <div key={key} className="text-[9px] font-semibold text-slate-700 dark:text-slate-300">
+                          <div key={key} className="text-[9px] font-semibold text-slate-700 dark:text-slate-300 not-italic">
                             {key}: PKR {val}
                           </div>
                         ))}
@@ -393,13 +390,14 @@ export const UmrahPackages = () => {
           {/* Includes (Diamond only) */}
           {isDiamond && (
             <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3">
-              <div className="text-[8px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1">
+              <div className="text-[8px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1 not-italic">
                  Package Includes
               </div>
+              {/* ✅ ITALIC - Includes list */}
               <ul className="space-y-1">
                 {pkg.includes.map((item, idx) => (
-                  <li key={idx} className="text-[9px] text-slate-600 dark:text-slate-400 flex items-start gap-1">
-                    <span className="text-emerald-500">✓</span> {item}
+                  <li key={idx} className="text-[9px] text-slate-600 dark:text-slate-400 flex items-start gap-1 italic">
+                    <span className="text-emerald-500 not-italic">✓</span> {item}
                   </li>
                 ))}
               </ul>
@@ -411,15 +409,15 @@ export const UmrahPackages = () => {
             <div className="grid grid-cols-3 gap-1 text-[8px] bg-slate-50 dark:bg-slate-800 rounded-lg p-2">
               <div>
                 <span className="text-slate-400 dark:text-slate-500 block">Infant</span>
-                <span className="font-bold text-slate-700 dark:text-slate-300">PKR {pkg.infantPrice}</span>
+                <span className="font-bold text-slate-700 dark:text-slate-300 not-italic">PKR {pkg.infantPrice}</span>
               </div>
               <div>
                 <span className="text-slate-400 dark:text-slate-500 block">Child (No Bed)</span>
-                <span className="font-bold text-slate-700 dark:text-slate-300">PKR {pkg.childPrice}</span>
+                <span className="font-bold text-slate-700 dark:text-slate-300 not-italic">PKR {pkg.childPrice}</span>
               </div>
               <div>
                 <span className="text-slate-400 dark:text-slate-500 block">Child (With Bed)</span>
-                <span className="font-bold text-slate-700 dark:text-slate-300">{pkg.childWithBed}</span>
+                <span className="font-bold text-slate-700 dark:text-slate-300 not-italic">{pkg.childWithBed}</span>
               </div>
             </div>
           )}
@@ -445,14 +443,19 @@ export const UmrahPackages = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2">
-            Exclusive Offers
+          {/* ✅ ITALIC - Exclusive Offers */}
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2 italic">
+            🕋 Exclusive Offers
           </span>
+          
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white uppercase">
             Umrah Packages
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-sm mt-3 max-w-2xl mx-auto">
-            Choose from our range of premium Umrah packages designed for comfort and spiritual fulfillment
+          
+          {/* ✅ ITALIC - Description with mix */}
+          <p className="text-slate-600 dark:text-slate-400 text-sm mt-3 max-w-2xl mx-auto italic">
+            Choose from our range of premium Umrah packages designed for 
+            <span className="not-italic font-semibold"> comfort and spiritual fulfillment</span>
           </p>
         </div>
 
@@ -465,8 +468,9 @@ export const UmrahPackages = () => {
 
         {/* Note */}
         <div className="mt-8 text-center">
-          <p className="text-[13px] text-slate-400 dark:text-slate-500">
-            * Prices are per person in PKR. Terms and conditions apply.
+          {/* ✅ ITALIC - Note */}
+          <p className="text-[13px] text-slate-400 dark:text-slate-500 italic">
+            * Prices are per person in PKR. <span className="not-italic font-semibold">Terms and conditions</span> apply.
           </p>
         </div>
       </div>

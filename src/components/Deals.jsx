@@ -1,5 +1,3 @@
-
-
 export const Deals = () => {
 
   // Flight deals data
@@ -57,15 +55,19 @@ export const Deals = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2">
-              TOP FLIGHT DEALS
+            {/* ✅ ITALIC - Top Flight Deals */}
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2 italic">
+              ✈️ TOP FLIGHT DEALS
             </span>
+            
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#0f172a] dark:text-white uppercase">
               REALTIME SECTOR FARES
             </h2>
-            <p className="text-slateText dark:text-slate-400 mt-3 text-xs">
+            
+            {/* ✅ ITALIC - Description with mix */}
+            <p className="text-slateText dark:text-slate-400 mt-3 text-xs italic">
               Direct low-price passenger routes dynamically checked from Lahore.
-              Standard one-way ticket parameters are optimized below.
+              <span className="not-italic font-semibold"> Standard one-way ticket</span> parameters are optimized below.
             </p>
           </div>
 
@@ -83,64 +85,48 @@ export const Deals = () => {
                     >
                       {deal.airline}
                     </span>
-                    <span className="text-[11px] text-slate-400 dark:text-slate-500 font-bold">
+                    <span className="text-[11px] text-slate-400 dark:text-slate-500 font-bold not-italic">
                       <i className="fa-solid fa-plane-up mr-1"></i> Checked
                     </span>
                   </div>
                   <h4 className="text-xl font-extrabold text-[#0f172a] dark:text-white uppercase tracking-tight">
                     {deal.route}
                   </h4>
-                  <p className="text-[11px] text-slateText dark:text-slate-400 mt-1 mb-6">
+                  {/* ✅ ITALIC - Description */}
+                  <p className="text-[11px] text-slateText dark:text-slate-400 mt-1 mb-6 italic">
                     {deal.description}
                   </p>
 
                   <div className="space-y-3 border-t border-slate-200/60 dark:border-slate-800 pt-4">
-                    <p className="text-[#0284c7] text-[13px] ">Starting from</p>
+                    {/* ✅ ITALIC - Starting from */}
+                    <p className="text-[#0284c7] text-[13px] italic">
+                      Starting from
+                    </p>
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-slateText dark:text-slate-300">
+                      <span className="text-slateText dark:text-slate-300 not-italic">
                         One-way Economy Class
                       </span>
-                      <strong className="text-emerald-600 dark:text-emerald-400 font-black">
+                      <strong className="text-emerald-600 dark:text-emerald-400 font-black not-italic">
                         {deal.economyPrice}
                       </strong>
                     </div>
                     <div className="flex items-center justify-between text-xs border-b border-slate-200/40 dark:border-slate-800/40 pb-3">
-                      <span className="text-slateText dark:text-slate-300">
+                      <span className="text-slateText dark:text-slate-300 not-italic">
                         One-way Business Class
                       </span>
-                      <strong className="text-emerald-600 dark:text-emerald-400 font-black">
+                      <strong className="text-emerald-600 dark:text-emerald-400 font-black not-italic">
                         {deal.businessPrice}
                       </strong>
                     </div>
                   </div>
-
-                  {/* <div className="mt-3 flex items-center justify-between text-[10px]">
-                                        <button 
-                                            onClick={() => checkLiveFare(deal.origin, deal.dest, deal.id)}
-                                            disabled={loading[deal.id]}
-                                            className="text-[#0284c7] dark:text-skyBrand font-bold hover:underline disabled:opacity-50 disabled:cursor-not-allowed transition"
-                                        >
-                                            <i className={`fa-solid ${loading[deal.id] ? 'fa-spinner fa-spin' : 'fa-bolt'} mr-1`}></i>
-                                            {loading[deal.id] ? 'Checking...' : 'Check live fare'}
-                                        </button>
-                                        <span id={`live-${deal.id}`} className="text-slate-400 font-semibold">
-                                            {liveFares[deal.id]}
-                                        </span>
-                                    </div> */}
                 </div>
-                {/* <button 
-                                    onClick={() => bookDeal(deal.destination, deal.economyPrice)}
-                                    className="flex-1 bg-[#0284c7] dark:bg-skyBrand hover:bg-sky-700 dark:hover:bg-sky-400 text-white dark:text-slate-950 font-extrabold py-3.5 px-4 rounded-xl text-[10px] uppercase tracking-widest transition duration-300 shadow-lg shadow-blue-500/10 disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    Inquire Flight Rates
-                                </button> */}
               </div>
             ))}
           </div>
 
-          {/* Mandatory pricing warning notice below flights */}
+          {/* ✅ ITALIC - Pricing warning notice with mix */}
           <p className="text-center text-[15px] text-slate-400 dark:text-slate-500 italic mt-8 leading-relaxed max-w-2xl mx-auto font-large">
-            * Starting fares. Final price depends on travel date, availability,
+            * Starting fares. <span className="not-italic font-semibold">Final price</span> depends on travel date, availability,
             and airline.
           </p>
         </div>

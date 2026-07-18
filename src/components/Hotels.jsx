@@ -115,15 +115,19 @@ export const Hotels = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2">
-              GLOBAL RESORT BASES
+            {/* ✅ ITALIC - Global Resort Bases */}
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2 italic">
+              🌍 GLOBAL RESORT BASES
             </span>
+            
             <h2 className="text-3xl font-extrabold text-[#0f172a] dark:text-white uppercase">
               Hotel Bookings
             </h2>
-            <p className="text-slateText dark:text-slate-400 mt-3 text-xs">
-              Direct reservation setups with premium hotels globally. Fully
-              transparent booking voucher issuances.
+            
+            {/* ✅ ITALIC - Description with mix */}
+            <p className="text-slateText dark:text-slate-400 mt-3 text-xs italic">
+              Direct reservation setups with <span className="not-italic font-bold">premium hotels</span> globally. 
+              Fully transparent <span className="not-italic font-semibold">booking voucher</span> issuances.
             </p>
           </div>
 
@@ -140,7 +144,8 @@ export const Hotels = () => {
                       alt={hotel.name}
                       className="w-full h-full object-cover transition-opacity duration-300 group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="absolute top-3 right-3 bg-black/80 dark:bg-slate-900/90 backdrop-blur text-[9px] font-extrabold text-white px-3 py-1 rounded-full uppercase">
+                    {/* ✅ ITALIC - Location badge */}
+                    <span className="absolute top-3 right-3 bg-black/80 dark:bg-slate-900/90 backdrop-blur text-[9px] font-extrabold text-white px-3 py-1 rounded-full uppercase italic">
                       {hotel.location}
                     </span>
                     <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-2">
@@ -162,12 +167,13 @@ export const Hotels = () => {
                     <h4 className="text-base font-extrabold text-[#0f172a] dark:text-white uppercase">
                       {hotel.name}
                     </h4>
-                    <p className="text-xs text-slateText dark:text-slate-400 mt-1 mb-4">
+                    {/* ✅ ITALIC - Hotel description */}
+                    <p className="text-xs text-slateText dark:text-slate-400 mt-1 mb-4 italic leading-relaxed">
                       {hotel.description}
                     </p>
                     <div className="flex items-center gap-1 text-amber-400 text-xs">
                       {renderStars(hotel.rating)}
-                      <span className="text-slate-400 dark:text-slate-500 text-[10px] pl-1 font-bold">
+                      <span className="text-slate-400 dark:text-slate-500 text-[10px] pl-1 font-bold not-italic">
                         {hotel.rating} Rating
                       </span>
                     </div>
@@ -175,12 +181,15 @@ export const Hotels = () => {
                 </div>
                 <div className="p-6 pt-0 mt-4">
                   <div className="text-xs border-t border-slate-50 dark:border-slate-800/80 pt-4 mb-4">
-                    <p className="text-[#0284c7] text-[13px] ">Starting from</p>
+                    {/* ✅ ITALIC - Starting from */}
+                    <p className="text-[#0284c7] text-[13px] italic">
+                      Starting from
+                    </p>
                     <div className='flex items-center justify-between text-xs"'>
-                      <span className="text-slate-500 dark:text-slate-400 font-bold">
+                      <span className="text-slate-500 dark:text-slate-400 font-bold not-italic">
                         Nightly Room Rate
                       </span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-black text-sm">
+                      <span className="text-emerald-600 dark:text-emerald-400 font-black text-sm not-italic">
                         {hotel.price}
                       </span>
                     </div>
@@ -190,9 +199,9 @@ export const Hotels = () => {
             ))}
           </div>
 
-          {/* Mandatory pricing warning notice below hotels */}
+          {/* ✅ ITALIC - Pricing warning notice */}
           <p className="text-center text-[15px] text-slate-400 dark:text-slate-500 italic mt-8 leading-relaxed max-w-2xl mx-auto font-large">
-            * Starting fares. Final price depends on date and availability.
+            * Starting fares. <span className="not-italic font-semibold">Final price</span> depends on date and availability.
           </p>
         </div>
       </section>

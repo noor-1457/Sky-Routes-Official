@@ -69,14 +69,21 @@ export const Contact = () => {
             {/* Info pane */}
             <div className="text-left flex flex-col justify-center">
               <div>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2">
-                  CONNECT WITH US
+                {/* ✅ ITALIC - Connect with us */}
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#0284c7] dark:text-skyBrand block mb-2 italic">
+                  📍 CONNECT WITH US
                 </span>
+                
                 <h2 className="text-3xl md:text-4xl font-extrabold text-deepBase dark:text-white uppercase leading-none mb-4">
                   PLAN YOUR TOUR TODAY
                 </h2>
-                <p className="text-slateText dark:text-slate-300 text-xs leading-relaxed mb-6 font-medium">
-                  Fill out this quick form. Customer travel coordinates will be saved securely to our corporate database in real-time, and a direct WhatsApp connection link will be compiled instantly.
+                
+                {/* ✅ ITALIC - Description with mix */}
+                <p className="text-slateText dark:text-slate-300 text-xs leading-relaxed mb-6 font-medium italic">
+                  Fill out this quick form. Customer travel coordinates will be saved securely to 
+                  <span className="not-italic font-bold"> our corporate database</span> in real-time, 
+                  and a direct <span className="not-italic font-semibold">WhatsApp connection link</span> 
+                  will be compiled instantly.
                 </p>
               </div>
 
@@ -86,8 +93,13 @@ export const Contact = () => {
                     <FaMapLocationDot />
                   </span>
                   <div>
-                    <h4 className="font-bold text-xs uppercase text-slate-500 dark:text-slate-400">Lahore Head Desk</h4>
-                    <p className="text-[11px] text-deepBase dark:text-slate-300 font-medium leading-relaxed">SF1, AL Rehman Square Mall, Al Rehman Garden, Phase 2, Lahore</p>
+                    {/* ✅ ITALIC - Location heading */}
+                    <h4 className="font-bold text-xs uppercase text-slate-500 dark:text-slate-400 italic">
+                      Lahore Head Desk
+                    </h4>
+                    <p className="text-[11px] text-deepBase dark:text-slate-300 font-medium leading-relaxed not-italic">
+                      SF1, AL Rehman Square Mall, Al Rehman Garden, Phase 2, Lahore
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -95,8 +107,13 @@ export const Contact = () => {
                     <FaEnvelopeOpenText />
                   </span>
                   <div>
-                    <h4 className="font-bold text-xs uppercase text-slate-500 dark:text-slate-400">Official Mailbox</h4>
-                    <p className="text-[11px] text-deepBase dark:text-slate-300 font-medium">skyroutesmarketing@gmail.com</p>
+                    {/* ✅ ITALIC - Email heading */}
+                    <h4 className="font-bold text-xs uppercase text-slate-500 dark:text-slate-400 italic">
+                      Official Mailbox
+                    </h4>
+                    <p className="text-[11px] text-deepBase dark:text-slate-300 font-medium not-italic">
+                      skyroutesmarketing@gmail.com
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -104,8 +121,13 @@ export const Contact = () => {
                     <FaPhoneVolume />
                   </span>
                   <div>
-                    <h4 className="font-bold text-xs uppercase text-slate-500 dark:text-slate-400">Support Hotline</h4>
-                    <p className="text-[11px] text-deepBase dark:text-slate-300 font-medium">+92 311 1101470</p>
+                    {/* ✅ ITALIC - Phone heading */}
+                    <h4 className="font-bold text-xs uppercase text-slate-500 dark:text-slate-400 italic">
+                      Support Hotline
+                    </h4>
+                    <p className="text-[11px] text-deepBase dark:text-slate-300 font-medium not-italic">
+                      +92 311 1101470
+                    </p>
                   </div>
                 </div>
               </div>
@@ -114,7 +136,7 @@ export const Contact = () => {
             {/* Form pane */}
             <div className="bg-white dark:bg-[#070a13] p-8 rounded-3xl border border-slate-100 dark:border-slate-800 card-shadow transition-colors duration-300">
               <h3 className="text-base font-extrabold uppercase text-deepBase dark:text-white mb-6 flex items-center gap-2">
-                <FaPaperPlane className="text-orangeBrand" /> Contact Us
+                <FaPaperPlane className="text-orangeBrand not-italic" /> Contact Us
               </h3>
 
               <form id="contactForm" onSubmit={handleSubmit}>
@@ -222,7 +244,7 @@ export const Contact = () => {
                     className="w-full bg-[#0284c7] dark:bg-skyBrand hover:bg-sky-700 dark:hover:bg-sky-400 text-white dark:text-slate-950 font-extrabold py-3.5 px-4 rounded-xl text-[10px] uppercase tracking-widest transition duration-300 shadow-lg shadow-blue-500/10 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <span id="submitText">
-                      <FaPaperPlane className="inline mr-2" /> 
+                      <FaPaperPlane className="inline mr-2 not-italic" /> 
                       {isSubmitting ? 'Sending...' : 'Send Enquiry'}
                     </span>
                   </button>
@@ -237,7 +259,7 @@ export const Contact = () => {
                 }`}
               >
                 <div className="bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3">
-                  <FaCircleCheck className="text-xl" />
+                  <FaCircleCheck className="text-xl not-italic" />
                   <div>
                     <p className="font-bold text-sm">Thank You!</p>
                     <p className="text-xs opacity-90">
