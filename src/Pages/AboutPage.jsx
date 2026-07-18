@@ -20,7 +20,7 @@ export const AboutPage = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-900/60 to-slate-900/70 dark:from-[#05070f]/70 dark:via-[#05070f]/75 dark:to-[#05070f]/80" />
           
           {/* Content */}
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center pt-2.5">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-6">
               <span className="relative flex h-2 w-2">
